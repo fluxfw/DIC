@@ -10,59 +10,71 @@ trait DICTrait {
 	/**
 	 * @var \ILIAS\DI\Container
 	 */
-	private $dic = NULL;
+	protected $dic = NULL;
 	/**
 	 * @var ilAccess
 	 */
-	private $access = NULL;
+	protected $access = NULL;
 	/**
 	 * @var ilCtrl
 	 */
-	private $ctrl = NULL;
+	protected $ctrl = NULL;
 	/**
 	 * @var ilDB
 	 */
-	private $db = NULL;
+	protected $db = NULL;
 	/**
 	 * @var ilLanguage
 	 */
-	private $lng = NULL;
+	protected $lng = NULL;
 	/**
 	 * @var ilRbacAdmin
 	 */
-	private $rbacadmin = NULL;
+	protected $rbacadmin = NULL;
 	/**
 	 * @var ilRbacReview
 	 */
-	private $rbacreview = NULL;
+	protected $rbacreview = NULL;
 	/**
 	 * @var ilRbacSystem
 	 */
-	private $rbacsystem = NULL;
+	protected $rbacsystem = NULL;
 	/**
 	 * @var ilSetting
 	 */
-	private $settings = NULL;
+	protected $settings = NULL;
 	/**
 	 * @var ilTabsGUI
 	 */
-	private $tabs = NULL;
+	protected $tabs = NULL;
 	/**
 	 * @var ilToolbarGUI
 	 */
-	private $toolbar = NULL;
+	protected $toolbar = NULL;
 	/**
 	 * @var ilTemplate
 	 */
-	private $tpl = NULL;
+	protected $tpl = NULL;
 	/**
 	 * @var ilTree
 	 */
-	private $tree = NULL;
+	protected $tree = NULL;
 	/**
 	 * @var ilObjUser
 	 */
-	private $user = NULL;
+	protected $user = NULL;
+
+
+	/**
+	 * @param string $name
+	 */
+	public function __get($name) {
+		if (method_exists($this, $name)) {
+			return $this->{$name}();
+		} else {
+			throw new ilException("The mehtod $name does not exists in the DIC-Trait!");
+		}
+	}
 
 
 	/**
@@ -78,7 +90,7 @@ trait DICTrait {
 	/**
 	 * @return \ILIAS\DI\Container
 	 */
-	protected function dic() {
+	private function dic() {
 		return $this->dic;
 	}
 
@@ -86,7 +98,7 @@ trait DICTrait {
 	/**
 	 * @return ilAccess
 	 */
-	protected function access() {
+	private function access() {
 		if ($this->access === NULL) {
 			$this->access = $this->dic->access();
 		}
@@ -98,7 +110,7 @@ trait DICTrait {
 	/**
 	 * @return ilCtrl
 	 */
-	protected function ctrl() {
+	private function ctrl() {
 		if ($this->ctrl === NULL) {
 			$this->ctrl = $this->dic->ctrl();
 		}
@@ -110,7 +122,7 @@ trait DICTrait {
 	/**
 	 * @return ilDB
 	 */
-	protected function db() {
+	private function db() {
 		if ($this->db === NULL) {
 			$this->db = $this->dic->database();
 		}
@@ -122,7 +134,7 @@ trait DICTrait {
 	/**
 	 * @return ilLanguage
 	 */
-	protected function lng() {
+	private function lng() {
 		if ($this->lng === NULL) {
 			$this->lng = $this->dic->language();
 		}
@@ -134,7 +146,7 @@ trait DICTrait {
 	/**
 	 * @return ilRbacAdmin
 	 */
-	protected function rbacadmin() {
+	private function rbacadmin() {
 		if ($this->rbacadmin === NULL) {
 			$this->rbacadmin = $this->dic->rbac()->admin();
 		}
@@ -146,7 +158,7 @@ trait DICTrait {
 	/**
 	 * @return ilRbacReview
 	 */
-	protected function rbacreview() {
+	private function rbacreview() {
 		if ($this->rbacreview === NULL) {
 			$this->rbacreview = $this->dic->rbac()->review();
 		}
@@ -158,7 +170,7 @@ trait DICTrait {
 	/**
 	 * @return ilRbacSystem
 	 */
-	protected function rbacsystem() {
+	private function rbacsystem() {
 		if ($this->rbacsystem === NULL) {
 			$this->rbacsystem = $this->dic->rbac()->system();
 		}
@@ -170,7 +182,7 @@ trait DICTrait {
 	/**
 	 * @return ilSetting
 	 */
-	protected function settings() {
+	private function settings() {
 		if ($this->settings === NULL) {
 			$this->settings = $this->dic["ilSetting"];
 		}
@@ -182,7 +194,7 @@ trait DICTrait {
 	/**
 	 * @return ilTabsGUI
 	 */
-	protected function tabs() {
+	private function tabs() {
 		if ($this->tabs === NULL) {
 			$this->tabs = $this->dic->tabs();
 		}
@@ -194,7 +206,7 @@ trait DICTrait {
 	/**
 	 * @return ilToolbarGUI
 	 */
-	protected function toolbar() {
+	private function toolbar() {
 		if ($this->toolbar === NULL) {
 			$this->toolbar = $this->dic->toolbar();
 		}
@@ -206,7 +218,7 @@ trait DICTrait {
 	/**
 	 * @return ilTemplate
 	 */
-	protected function tpl() {
+	private function tpl() {
 		if ($this->tpl === NULL) {
 			$this->tpl = $this->dic->ui()->mainTemplate();
 		}
@@ -218,7 +230,7 @@ trait DICTrait {
 	/**
 	 * @return ilTree
 	 */
-	protected function tree() {
+	private function tree() {
 		if ($this->tree === NULL) {
 			$this->tree = $this->dic->repositoryTree();
 		}
@@ -230,7 +242,7 @@ trait DICTrait {
 	/**
 	 * @return ilObjUser
 	 */
-	protected function user() {
+	private function user() {
 		if ($this->user === NULL) {
 			$this->user = $this->dic->user();
 		}
