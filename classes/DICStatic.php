@@ -3,19 +3,19 @@
 namespace srag;
 
 /**
- * DIC-Trait for static methods
+ * DIC for static methods
  */
 final class DICStatic {
 
-	use DICTrait;
+	use DIC;
 	/**
-	 * @var DICTrait
+	 * @var DIC
 	 */
 	protected static $instance = NULL;
 
 
 	/**
-	 * @return DICTrait
+	 * @return DIC
 	 */
 	public static function getInstance() {
 		if (self::$instance === NULL) {

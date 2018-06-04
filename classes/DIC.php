@@ -18,6 +18,7 @@ namespace srag;
  * @property \ilToolbarGUI                 $ilToolbar
  * @property \ilObjUser                    $ilUser
  * @property \ilLanguage                   $lng
+ * @property \ilPlugin                     $pl
  * @property \ilRbacAdmin                  $rbacadmin
  * @property \ilRbacReview                 $rbacreview
  * @property \ilRbacSystem                 $rbacsystem
@@ -25,7 +26,41 @@ namespace srag;
  * @property \ilTree                       $tree
  * @property \ILIAS\FileUpload\FileUpload  $upload
  */
-trait DICTrait {
+trait DIC {
+
+	/**
+	 * @return \ilPlugin
+	 */
+	private static function getPluginInstance() {
+		static $pl_caches = [];
+
+		$current_class = self::class;
+
+		if (!isset($pl_caches[$current_class])) {
+			$reflect = new \ReflectionClass($current_class);
+
+			$comment = $reflect->getDocComment();
+
+			$r = "/@property[ \t]+\\\\?(il[A-Za-z0-9_\-]+Plugin)[ \t]+\\\$pl/";
+			$matches = [];
+			preg_match($r, $comment, $matches);
+			if (is_array($matches) && count($matches) >= 2) {
+				$plugin_class = $matches[1];
+
+				if (method_exists($plugin_class, "getInstance")) {
+					$plugin_instance = $plugin_class::getInstance();
+					$pl_caches[$current_class] = $plugin_instance;
+
+					return $plugin_instance;
+				}
+			}
+
+			$pl_caches[$current_class] = NULL;
+		}
+
+		return $pl_caches[$current_class];
+	}
+
 
 	/**
 	 * @param string $name
@@ -43,6 +78,9 @@ trait DICTrait {
 		switch ($name) {
 			case "DIC":
 				return $DIC;
+
+			case "pl":
+				return self::getPluginInstance();
 
 			default:
 				if ($DIC->offsetExists($name)) {
