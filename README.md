@@ -48,6 +48,10 @@ This library also supports getting the plugin class instance. Add for this the $
  * @property ilXPlugin $pl
  */
 ```
+And access like other variables:
+```php
+$this->pl;
+```
 
 
 You can now remove all usages of globals in your class and rename possible occurrences if you previous use an other name.
