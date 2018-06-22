@@ -36,6 +36,7 @@ $this->{"mail.mime.sender.factory"};
 If you want to use it in static functions, you do it:
 ```php
 $DIC = \srag\DICStatic::getInstance();
+$DIC->ilCtrl;
 ```
 
 
