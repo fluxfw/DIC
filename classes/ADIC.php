@@ -22,11 +22,12 @@ abstract class ADIC implements IDIC {
 
 	/**
 	 * @return ilPlugin
-	 *
-	 * TODO: Find a optimal way
 	 */
 	public final function pl() {
-		/*static $pl_caches = [];
+		// TODO: Implement this
+
+		/*TODO: Find a optimal way
+				static $pl_caches = [];
 
 				$current_class = self::class;
 

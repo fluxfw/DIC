@@ -13,6 +13,8 @@ use ILIAS\DI\UIServices;
 use ILIAS\Filesystem\Filesystems;
 use ILIAS\FileUpload\FileUpload;
 use ilLanguage;
+use ilLog;
+use ilMailMimeSenderFactory;
 use ilObjUser;
 use ilPlugin;
 use ilRbacAdmin;
@@ -86,11 +88,25 @@ interface IDIC {
 
 
 	/**
+	 * @return ilLog
+	 */
+	public function log();
+
+
+	/**
 	 * @return LoggingServices
 	 *
 	 * @throws DICException
 	 */
 	public function logger();
+
+
+	/**
+	 * @return ilMailMimeSenderFactory
+	 *
+	 * @throws DICException
+	 */
+	public function mailMimeSenderFactory();
 
 
 	/**

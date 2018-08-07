@@ -1,6 +1,6 @@
 {
-  "name": "srag/DICTrait",
-  "description": "Use all $DIC properties dynamic in your class",
+  "name": "srag/DIC",
+  "description": "Use all ILIAS globals in your class",
   "version": "0.1.0",
   "type": "library",
   "keywords": [
@@ -8,7 +8,7 @@
     "DIC",
     "Trait"
   ],
-  "homepage": "https://github.com/studer-raimann/DICTrait",
+  "homepage": "https://git.studer-raimann.ch/ILIAS/Plugins/DIC",
   "time": "",
   "license": "MIT",
   "authors": [

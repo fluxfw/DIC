@@ -13,6 +13,8 @@ use ILIAS\DI\UIServices;
 use ILIAS\Filesystem\Filesystems;
 use ILIAS\FileUpload\FileUpload;
 use ilLanguage;
+use ilLog;
+use ilMailMimeSenderFactory;
 use ilObjUser;
 use ilRbacAdmin;
 use ilRbacReview;
@@ -38,12 +40,13 @@ final class LegacyDIC extends ADIC {
 
 	/**
 	 * LegacyDIC constructor
+	 *
+	 * @param array $globals
 	 */
-	public function __construct() {
+	public function __construct(array &$globals) {
 		parent::__construct();
 
-		global $GLOBALS;
-		$this->globals = &$GLOBALS;
+		$this->globals = &$globals;
 	}
 
 
@@ -118,12 +121,30 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
+	 * @return ilLog
+	 */
+	public function log() {
+		return $this->globals["ilLog"];
+	}
+
+
+	/**
 	 * @return LoggingServices
 	 *
 	 * @throws DICException
 	 */
 	public function logger() {
 		throw new DICException("LoggingServices not exists in ILIAS 5.2 or below!");
+	}
+
+
+	/**
+	 * @return ilMailMimeSenderFactory
+	 *
+	 * @throws DICException
+	 */
+	public function mailMimeSenderFactory() {
+		throw new DICException("ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!");
 	}
 
 
@@ -216,5 +237,13 @@ final class LegacyDIC extends ADIC {
 	 */
 	public function user() {
 		return $this->globals["ilUser"];
+	}
+
+
+	/**
+	 * @return array
+	 */
+	public function &globals() {
+		return $this->globals;
 	}
 }

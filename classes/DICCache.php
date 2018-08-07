@@ -21,9 +21,11 @@ final class DICCache {
 	public static function dic() {
 		if (self::$dic === NULL) {
 			if (ILIAS_VERSION_NUMERIC >= "5.2") {
-				self::$dic = new NewDIC();
+				global $DIC;
+				self::$dic = new NewDIC($DIC);
 			} else {
-				self::$dic = new LegacyDIC();
+				global $GLOBALS;
+				self::$dic = new LegacyDIC($GLOBALS);
 			}
 		}
 

@@ -14,6 +14,8 @@ use ILIAS\DI\UIServices;
 use ILIAS\Filesystem\Filesystems;
 use ILIAS\FileUpload\FileUpload;
 use ilLanguage;
+use ilLog;
+use ilMailMimeSenderFactory;
 use ilObjUser;
 use ilRbacAdmin;
 use ilRbacReview;
@@ -28,8 +30,6 @@ use ilTree;
  * Class NewDIC
  *
  * @package srag\DIC
- *
- * TODO: mail.mime.sender.factory
  */
 final class NewDIC extends ADIC {
 
@@ -41,12 +41,13 @@ final class NewDIC extends ADIC {
 
 	/**
 	 * NewDIC constructor
+	 *
+	 * @param Container $dic
 	 */
-	public function __construct() {
+	public function __construct(Container $dic) {
 		parent::__construct();
 
-		global $DIC;
-		$this->dic = $DIC;
+		$this->dic = $dic;
 	}
 
 
@@ -72,7 +73,7 @@ final class NewDIC extends ADIC {
 	 * @throws DICException
 	 */
 	public function backgroundTasks() {
-		if (ILIAS_VERSION_NUMERIC >= "5.3") {
+		if ($this->is53()) {
 			return $this->dic->backgroundTasks();
 		} else {
 			throw new DICException("BackgroundTaskServices not exists in ILIAS 5.2 or below!");
@@ -102,7 +103,7 @@ final class NewDIC extends ADIC {
 	 * @throws DICException
 	 */
 	public function filesystem() {
-		if (ILIAS_VERSION_NUMERIC >= "5.3") {
+		if ($this->is53()) {
 			return $this->dic->filesystem();
 		} else {
 			throw new DICException("Filesystems not exists in ILIAS 5.2 or below!");
@@ -116,7 +117,7 @@ final class NewDIC extends ADIC {
 	 * @throws DICException
 	 */
 	public function http() {
-		if (ILIAS_VERSION_NUMERIC >= "5.3") {
+		if ($this->is53()) {
 			return $this->dic->http();
 		} else {
 			throw new DICException("HTTPServices not exists in ILIAS 5.2 or below!");
@@ -133,12 +134,34 @@ final class NewDIC extends ADIC {
 
 
 	/**
+	 * @return ilLog
+	 */
+	public function log() {
+		return $this->dic["ilLog"];
+	}
+
+
+	/**
 	 * @return LoggingServices
 	 *
 	 * @throws DICException
 	 */
 	public function logger() {
 		return $this->dic->logger();
+	}
+
+
+	/**
+	 * @return ilMailMimeSenderFactory
+	 *
+	 * @throws DICException
+	 */
+	public function mailMimeSenderFactory() {
+		if ($this->is53()) {
+			return $this->dic["mail.mime.sender.factory"];
+		} else {
+			throw new DICException("ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!");
+		}
 	}
 
 
@@ -222,7 +245,11 @@ final class NewDIC extends ADIC {
 	 * @throws DICException
 	 */
 	public function upload() {
-		return $this->dic->upload();
+		if ($this->is53()) {
+			return $this->dic->upload();
+		} else {
+			throw new DICException("FileUpload not exists in ILIAS 5.2 or below!");
+		}
 	}
 
 
@@ -239,5 +266,13 @@ final class NewDIC extends ADIC {
 	 */
 	public function dic() {
 		return $this->dic;
+	}
+
+
+	/**
+	 * @return bool
+	 */
+	private function is53() {
+		return (ILIAS_VERSION_NUMERIC >= "5.3");
 	}
 }
