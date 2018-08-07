@@ -9,7 +9,6 @@ class ComposerStaticInitb02aa80e96543def80b09066fc2ef81a
     public static $classMap = array (
         'srag\\DIC\\ADIC' => __DIR__ . '/../..' . '/classes/ADIC.php',
         'srag\\DIC\\DICCache' => __DIR__ . '/../..' . '/classes/DICCache.php',
-        'srag\\DIC\\DIC_' => __DIR__ . '/../..' . '/classes/_DIC.php',
         'srag\\DIC\\LegacyDIC' => __DIR__ . '/../..' . '/classes/LegacyDIC.php',
         'srag\\DIC\\NewDIC' => __DIR__ . '/../..' . '/classes/NewDIC.php',
     );

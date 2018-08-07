@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'srag\\DIC\\ADIC' => $baseDir . '/classes/ADIC.php',
     'srag\\DIC\\DICCache' => $baseDir . '/classes/DICCache.php',
-    'srag\\DIC\\DIC_' => $baseDir . '/classes/_DIC.php',
     'srag\\DIC\\LegacyDIC' => $baseDir . '/classes/LegacyDIC.php',
     'srag\\DIC\\NewDIC' => $baseDir . '/classes/NewDIC.php',
 );
