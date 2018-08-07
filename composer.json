@@ -6,7 +6,8 @@
   "keywords": [
     "ILIAS",
     "DIC",
-    "Trait"
+    "Trait",
+    "globals"
   ],
   "homepage": "https://git.studer-raimann.ch/ILIAS/Plugins/DIC",
   "time": "",
@@ -24,7 +25,7 @@
   },
   "autoload": {
     "classmap": [
-      "classes/"
+      "src/"
     ]
   },
   "config": {

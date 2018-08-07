@@ -18,7 +18,10 @@ First add the follow to your `composer.json` file:
 "repositories": [
     {
       "type": "path",
-      "url": "../../../../Libraries/DIC"
+      "url": "../../../../Libraries/DIC",
+      "options": {
+          "symlink": false
+      }
     }
   ],
   "require": {

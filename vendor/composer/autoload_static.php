@@ -7,10 +7,13 @@ namespace Composer\Autoload;
 class ComposerStaticInitb02aa80e96543def80b09066fc2ef81a
 {
     public static $classMap = array (
-        'srag\\DIC\\ADIC' => __DIR__ . '/../..' . '/classes/ADIC.php',
-        'srag\\DIC\\DICCache' => __DIR__ . '/../..' . '/classes/DICCache.php',
-        'srag\\DIC\\LegacyDIC' => __DIR__ . '/../..' . '/classes/LegacyDIC.php',
-        'srag\\DIC\\NewDIC' => __DIR__ . '/../..' . '/classes/NewDIC.php',
+        'srag\\DIC\\ADIC' => __DIR__ . '/../..' . '/src/classes/ADIC.php',
+        'srag\\DIC\\DIC' => __DIR__ . '/../..' . '/src/traits/DIC.php',
+        'srag\\DIC\\DICCache' => __DIR__ . '/../..' . '/src/classes/DICCache.php',
+        'srag\\DIC\\DICException' => __DIR__ . '/../..' . '/src/exceptions/DICException.php',
+        'srag\\DIC\\IDIC' => __DIR__ . '/../..' . '/src/interfaces/IDIC.php',
+        'srag\\DIC\\LegacyDIC' => __DIR__ . '/../..' . '/src/classes/LegacyDIC.php',
+        'srag\\DIC\\NewDIC' => __DIR__ . '/../..' . '/src/classes/NewDIC.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
