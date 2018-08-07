@@ -15,12 +15,18 @@ git clone git@git.studer-raimann.ch:ILIAS/Plugins/DIC.git DIC
 #### Composer
 First add the follow to your `composer.json` file:
 ```json
-"repositories": [
+  "repositories": [
     {
-      "type": "path",
-      "url": "../../../../Libraries/DIC",
-      "options": {
-          "symlink": false
+      "type": "package",
+      "package": {
+        "name": "srag/DIC",
+        "version": "0.1.0",
+        "type": "package",
+        "source": {
+          "url": "git@git.studer-raimann.ch:ILIAS/Plugins/DIC.git",
+          "type": "git",
+          "reference": "master"
+        }
       }
     }
   ],
@@ -62,7 +68,7 @@ You can now remove all usages of ILIAS globals in your class and replace it with
 Remember to add something like to your README.md file:
 ```markdown
 ### Dependencies
-This plugin needs [DIC library](https://git.studer-raimann.ch/ILIAS/Plugins/DIC). Please install it for development.
+This plugin depends from [DIC library](https://git.studer-raimann.ch/ILIAS/Plugins/DIC).
 ```
 
 #### Requirements
