@@ -17,13 +17,13 @@ trait DICTrait {
 	 *
 	 * @abstract
 	 *
-	 * TODO: Implement Constantess in Traits in PHP Core
+	 * TODO: Implement Constants in Traits in PHP Core
 	 * /
 	const PLUGIN_CLASS_NAME = "";*/
 
 	/**
 	 * @return DICInterface
-	 * @throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
+	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
 	protected static function dic() {
 		self::checkPluginClassNameConst();
@@ -34,7 +34,7 @@ trait DICTrait {
 
 	/**
 	 * @return ilPlugin
-	 * @throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
+	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
 	protected static function pl() {
 		self::checkPluginClassNameConst();
@@ -48,7 +48,7 @@ trait DICTrait {
 	 * @param bool   $plugin
 	 *
 	 * @return string
-	 * @throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
+	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
 	protected static function t($key, $plugin = true) {
 		if ($plugin) {
@@ -66,7 +66,7 @@ trait DICTrait {
 	 * @param bool   $plugin
 	 *
 	 * @return ilTemplate
-	 * @throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
+	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
 	protected static function template($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true) {
 		if ($plugin) {
