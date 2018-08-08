@@ -47,6 +47,8 @@ trait DICTrait {
 	 *
 	 * @return string
 	 * @throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
+	 *
+	 * TODO: static? Other name cause ilPlugin? `t`?
 	 */
 	protected function txt($key, $plugin = true) {
 		if ($this instanceof ilPlugin) {
@@ -66,6 +68,8 @@ trait DICTrait {
 	 *
 	 * @return ilTemplate
 	 * @throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
+	 *
+	 * TODO: static? Other name cause ilPlugin? `template`?
 	 */
 	protected function getTemplate($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true) {
 		if ($this instanceof ilPlugin) {
