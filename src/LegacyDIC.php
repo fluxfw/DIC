@@ -54,6 +54,22 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function benchmark() {
+		return $this->globals["ilBench"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function clientIni() {
+		return $this->globals["ilClientIniFile"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function ctrl() {
 		return $this->globals["ilCtrl"];
 	}
@@ -78,6 +94,14 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function help() {
+		return $this->globals["ilHelp"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function http() {
 		throw new DICException("HTTPServices not exists in ILIAS 5.2 or below!");
 	}
@@ -86,8 +110,40 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function history() {
+		return $this->globals["ilNavigationHistory"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function ilias() {
+		return $this->globals["ilias"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function iliasIni() {
+		return $this->globals["ilIliasIniFile"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function lng() {
 		return $this->globals["lng"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function locator() {
+		return $this->globals["ilLocator"];
 	}
 
 
@@ -112,6 +168,14 @@ final class LegacyDIC extends AbstractDIC {
 	 */
 	public function mailMimeSenderFactory() {
 		throw new DICException("ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!");
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function objDefinition() {
+		return $this->globals["objDefinition"];
 	}
 
 
@@ -144,6 +208,14 @@ final class LegacyDIC extends AbstractDIC {
 	 */
 	public function settings() {
 		return $this->globals["ilSetting"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function systemStyle() {
+		return $this->globals["styleDefinition"];
 	}
 
 

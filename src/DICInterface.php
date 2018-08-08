@@ -4,22 +4,30 @@ namespace srag\DIC;
 
 use ilAccess;
 use ilAppEventHandler;
+use ilBenchmark;
 use ilCtrl;
 use ilDBInterface;
+use ilHelpGUI;
+use ILIAS;
 use ILIAS\DI\BackgroundTaskServices;
 use ILIAS\DI\HTTPServices;
 use ILIAS\DI\LoggingServices;
 use ILIAS\DI\UIServices;
 use ILIAS\Filesystem\Filesystems;
 use ILIAS\FileUpload\FileUpload;
+use ilIniFile;
 use ilLanguage;
+use ilLocatorGUI;
 use ilLog;
 use ilMailMimeSenderFactory;
+use ilNavigationHistory;
+use ilObjectDefinition;
 use ilObjUser;
 use ilRbacAdmin;
 use ilRbacReview;
 use ilRbacSystem;
 use ilSetting;
+use ilStyleDefinition;
 use ilTabsGUI;
 use ilTemplate;
 use ilToolbarGUI;
@@ -53,6 +61,18 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilBenchmark
+	 */
+	public function benchmark();
+
+
+	/**
+	 * @return ilIniFile
+	 */
+	public function clientIni();
+
+
+	/**
 	 * @return ilCtrl
 	 */
 	public function ctrl();
@@ -73,6 +93,18 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilHelpGUI
+	 */
+	public function help();
+
+
+	/**
+	 * @return ilNavigationHistory
+	 */
+	public function history();
+
+
+	/**
 	 * @return HTTPServices
 	 *
 	 * @throws DICException HTTPServices not exists in ILIAS 5.2 or below!
@@ -81,9 +113,27 @@ interface DICInterface {
 
 
 	/**
+	 * @return ILIAS
+	 */
+	public function ilias();
+
+
+	/**
+	 * @return ilIniFile
+	 */
+	public function iliasIni();
+
+
+	/**
 	 * @return ilLanguage
 	 */
 	public function lng();
+
+
+	/**
+	 * @return ilLocatorGUI
+	 */
+	public function locator();
 
 
 	/**
@@ -109,6 +159,12 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilObjectDefinition
+	 */
+	public function objDefinition();
+
+
+	/**
 	 * @return ilRbacAdmin
 	 */
 	public function rbacadmin();
@@ -130,6 +186,12 @@ interface DICInterface {
 	 * @return ilSetting
 	 */
 	public function settings();
+
+
+	/**
+	 * @return ilStyleDefinition
+	 */
+	public function systemStyle();
 
 
 	/**

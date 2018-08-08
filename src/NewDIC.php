@@ -60,6 +60,26 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function benchmark() {
+		return $this->dic["ilBench"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function clientIni() {
+		if ($this->is54()) {
+			return $this->dic->clientIni();
+		} else {
+			return $this->dic["ilClientIniFile"];
+		}
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function ctrl() {
 		return $this->dic->ctrl();
 	}
@@ -88,6 +108,18 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function help() {
+		if ($this->is54()) {
+			return $this->dic->help();
+		} else {
+			return $this->dic["ilHelp"];
+		}
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function http() {
 		if ($this->is53()) {
 			return $this->dic->http();
@@ -100,8 +132,44 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function history() {
+		return $this->dic["ilNavigationHistory"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function ilias() {
+		return $this->dic["ilias"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function iliasIni() {
+		if ($this->is54()) {
+			return $this->dic->iliasIni();
+		} else {
+			return $this->dic["ilIliasIniFile"];
+		}
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function lng() {
 		return $this->dic->language();
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function locator() {
+		return $this->dic["ilLocator"];
 	}
 
 
@@ -136,6 +204,14 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function objDefinition() {
+		return $this->dic["objDefinition"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function rbacadmin() {
 		return $this->dic->rbac()->admin();
 	}
@@ -162,6 +238,18 @@ final class NewDIC extends AbstractDIC {
 	 */
 	public function settings() {
 		return $this->dic->settings();
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function systemStyle() {
+		if ($this->is54()) {
+			return $this->dic->systemStyle();
+		} else {
+			return $this->dic["styleDefinition"];
+		}
 	}
 
 
@@ -238,5 +326,13 @@ final class NewDIC extends AbstractDIC {
 	 */
 	private function is53() {
 		return (ILIAS_VERSION_NUMERIC >= "5.3");
+	}
+
+
+	/**
+	 * @return bool
+	 */
+	private function is54() {
+		return (ILIAS_VERSION_NUMERIC >= "5.4");
 	}
 }
