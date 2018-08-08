@@ -16,7 +16,6 @@ use ilLanguage;
 use ilLog;
 use ilMailMimeSenderFactory;
 use ilObjUser;
-use ilPlugin;
 use ilRbacAdmin;
 use ilRbacReview;
 use ilRbacSystem;
@@ -146,7 +145,7 @@ interface DICInterface {
 
 
 	/**
-	 * @return ilTemplate
+	 * @return ilTemplate Main-Template
 	 */
 	public function tpl();
 
@@ -177,26 +176,4 @@ interface DICInterface {
 	 * @return ilObjUser
 	 */
 	public function user();
-
-
-	/**
-	 * @param ilPlugin $pl
-	 * @param string   $key
-	 * @param bool     $plugin
-	 *
-	 * @return string
-	 */
-	public function txt(ilPlugin $pl, $key, $plugin = true);
-
-
-	/**
-	 * @param ilPlugin $pl
-	 * @param string   $template
-	 * @param bool     $remove_unknown_variables
-	 * @param bool     $remove_empty_blocks
-	 * @param bool     $plugin
-	 *
-	 * @return ilTemplate
-	 */
-	public function getTemplate(ilPlugin $pl, $template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true);
 }

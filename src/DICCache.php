@@ -54,7 +54,7 @@ final class DICCache {
 			if (method_exists($plugin_class_name, "getInstance")) {
 				self::$pl[$plugin_class_name] = $plugin_class_name::getInstance();
 			} else {
-				// TODO: Some log in ILIAS log to implement getInstance
+				// TODO: Ev. some log in ILIAS log to implement getInstance
 				self::$pl[$plugin_class_name] = new $plugin_class_name();
 			}
 		}
