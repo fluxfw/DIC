@@ -4,22 +4,27 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb02aa80e96543def80b09066fc2ef81a
+class ComposerStaticInitfdfe927fc1fa2949d9f477a6b2291b14
 {
-    public static $classMap = array (
-        'srag\\DIC\\ADIC' => __DIR__ . '/../..' . '/src/classes/ADIC.php',
-        'srag\\DIC\\DIC' => __DIR__ . '/../..' . '/src/traits/DIC.php',
-        'srag\\DIC\\DICCache' => __DIR__ . '/../..' . '/src/classes/DICCache.php',
-        'srag\\DIC\\DICException' => __DIR__ . '/../..' . '/src/exceptions/DICException.php',
-        'srag\\DIC\\IDIC' => __DIR__ . '/../..' . '/src/interfaces/IDIC.php',
-        'srag\\DIC\\LegacyDIC' => __DIR__ . '/../..' . '/src/classes/LegacyDIC.php',
-        'srag\\DIC\\NewDIC' => __DIR__ . '/../..' . '/src/classes/NewDIC.php',
+    public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'srag\\DIC\\' => 9,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'srag\\DIC\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInitb02aa80e96543def80b09066fc2ef81a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfdfe927fc1fa2949d9f477a6b2291b14::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfdfe927fc1fa2949d9f477a6b2291b14::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

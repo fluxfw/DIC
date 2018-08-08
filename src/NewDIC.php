@@ -2,36 +2,14 @@
 
 namespace srag\DIC;
 
-use ilAccessHandler;
-use ilAppEventHandler;
-use ilCtrl;
-use ilDBInterface;
-use ILIAS\DI\BackgroundTaskServices;
 use ILIAS\DI\Container;
-use ILIAS\DI\HTTPServices;
-use ILIAS\DI\LoggingServices;
-use ILIAS\DI\UIServices;
-use ILIAS\Filesystem\Filesystems;
-use ILIAS\FileUpload\FileUpload;
-use ilLanguage;
-use ilLog;
-use ilMailMimeSenderFactory;
-use ilObjUser;
-use ilRbacAdmin;
-use ilRbacReview;
-use ilRbacSystem;
-use ilSetting;
-use ilTabsGUI;
-use ilTemplate;
-use ilToolbarGUI;
-use ilTree;
 
 /**
  * Class NewDIC
  *
  * @package srag\DIC
  */
-final class NewDIC extends ADIC {
+final class NewDIC extends AbstractDIC {
 
 	/**
 	 * @var Container
@@ -52,7 +30,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilAccessHandler
+	 * @inheritdoc
 	 */
 	public function access() {
 		return $this->dic->access();
@@ -60,7 +38,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilAppEventHandler
+	 * @inheritdoc
 	 */
 	public function appEventHandler() {
 		return $this->dic->event();
@@ -68,9 +46,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return BackgroundTaskServices
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function backgroundTasks() {
 		if ($this->is53()) {
@@ -82,7 +58,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilCtrl
+	 * @inheritdoc
 	 */
 	public function ctrl() {
 		return $this->dic->ctrl();
@@ -90,7 +66,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilDBInterface
+	 * @inheritdoc
 	 */
 	public function database() {
 		return $this->dic->database();
@@ -98,9 +74,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return Filesystems
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function filesystem() {
 		if ($this->is53()) {
@@ -112,9 +86,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return HTTPServices
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function http() {
 		if ($this->is53()) {
@@ -126,7 +98,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilLanguage
+	 * @inheritdoc
 	 */
 	public function lng() {
 		return $this->dic->language();
@@ -134,7 +106,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilLog
+	 * @inheritdoc
 	 */
 	public function log() {
 		return $this->dic["ilLog"];
@@ -142,9 +114,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return LoggingServices
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function logger() {
 		return $this->dic->logger();
@@ -152,9 +122,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilMailMimeSenderFactory
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function mailMimeSenderFactory() {
 		if ($this->is53()) {
@@ -166,7 +134,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilRbacAdmin
+	 * @inheritdoc
 	 */
 	public function rbacadmin() {
 		return $this->dic->rbac()->admin();
@@ -174,7 +142,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilRbacReview
+	 * @inheritdoc
 	 */
 	public function rbacreview() {
 		return $this->dic->rbac()->review();
@@ -182,7 +150,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilRbacSystem
+	 * @inheritdoc
 	 */
 	public function rbacsystem() {
 		return $this->dic->rbac()->system();
@@ -190,7 +158,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilSetting
+	 * @inheritdoc
 	 */
 	public function settings() {
 		return $this->dic->settings();
@@ -198,7 +166,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilTabsGUI
+	 * @inheritdoc
 	 */
 	public function tabs() {
 		return $this->dic->tabs();
@@ -206,7 +174,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilToolbarGUI
+	 * @inheritdoc
 	 */
 	public function toolbar() {
 		return $this->dic->toolbar();
@@ -214,7 +182,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilTemplate
+	 * @inheritdoc
 	 */
 	public function tpl() {
 		return $this->dic->ui()->mainTemplate();
@@ -222,7 +190,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilTree
+	 * @inheritdoc
 	 */
 	public function tree() {
 		return $this->dic->repositoryTree();
@@ -230,9 +198,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return UIServices
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function ui() {
 		return $this->dic->ui();
@@ -240,9 +206,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return FileUpload
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function upload() {
 		if ($this->is53()) {
@@ -254,7 +218,7 @@ final class NewDIC extends ADIC {
 
 
 	/**
-	 * @return ilObjUser
+	 * @inheritdoc
 	 */
 	public function user() {
 		return $this->dic->user();

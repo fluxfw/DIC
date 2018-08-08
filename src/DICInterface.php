@@ -27,11 +27,11 @@ use ilToolbarGUI;
 use ilTree;
 
 /**
- * Interface IDIC
+ * Interface DICInterface
  *
  * @package srag\DIC
  */
-interface IDIC {
+interface DICInterface {
 
 	/**
 	 * @return ilAccess
@@ -48,7 +48,7 @@ interface IDIC {
 	/**
 	 * @return BackgroundTaskServices
 	 *
-	 * @throws DICException
+	 * @throws DICException BackgroundTaskServices not exists in ILIAS 5.2 or below!
 	 */
 	public function backgroundTasks();
 
@@ -68,7 +68,7 @@ interface IDIC {
 	/**
 	 * @return Filesystems
 	 *
-	 * @throws DICException
+	 * @throws DICException Filesystems not exists in ILIAS 5.2 or below!
 	 */
 	public function filesystem();
 
@@ -76,7 +76,7 @@ interface IDIC {
 	/**
 	 * @return HTTPServices
 	 *
-	 * @throws DICException
+	 * @throws DICException HTTPServices not exists in ILIAS 5.2 or below!
 	 */
 	public function http();
 
@@ -96,7 +96,7 @@ interface IDIC {
 	/**
 	 * @return LoggingServices
 	 *
-	 * @throws DICException
+	 * @throws DICException LoggingServices not exists in ILIAS 5.2 or below!
 	 */
 	public function logger();
 
@@ -104,7 +104,7 @@ interface IDIC {
 	/**
 	 * @return ilMailMimeSenderFactory
 	 *
-	 * @throws DICException
+	 * @throws DICException ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!
 	 */
 	public function mailMimeSenderFactory();
 
@@ -160,7 +160,7 @@ interface IDIC {
 	/**
 	 * @return UIServices
 	 *
-	 * @throws DICException
+	 * @throws DICException UIServices not exists in ILIAS 5.1 or below!
 	 */
 	public function ui();
 
@@ -168,7 +168,7 @@ interface IDIC {
 	/**
 	 * @return FileUpload
 	 *
-	 * @throws DICException
+	 * @throws DICException FileUpload not exists in ILIAS 5.2 or below!
 	 */
 	public function upload();
 
@@ -180,27 +180,23 @@ interface IDIC {
 
 
 	/**
-	 * @return ilPlugin
-	 */
-	public function pl();
-
-
-	/**
-	 * @param string $key
-	 * @param bool   $plugin
+	 * @param ilPlugin $pl
+	 * @param string   $key
+	 * @param bool     $plugin
 	 *
 	 * @return string
 	 */
-	public function txt($key, $plugin = true);
+	public function txt(ilPlugin $pl, $key, $plugin = true);
 
 
 	/**
-	 * @param string $template
-	 * @param bool   $remove_unknown_variables
-	 * @param bool   $remove_empty_blocks
-	 * @param bool   $plugin
+	 * @param ilPlugin $pl
+	 * @param string   $template
+	 * @param bool     $remove_unknown_variables
+	 * @param bool     $remove_empty_blocks
+	 * @param bool     $plugin
 	 *
 	 * @return ilTemplate
 	 */
-	public function getTemplate($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true);
+	public function getTemplate(ilPlugin $pl, $template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true);
 }

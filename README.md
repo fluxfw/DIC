@@ -44,16 +44,24 @@ Then add the follow line to your class at top:
 ...
 class x {
 
-	use srag\DIC\DIC;
+	use srag\DIC\DICTrait;
+	
+	const PLUGIN_CLASS_NAME = ilXPlugin::class;
 	
 	...
 }
 ```
+`ilXPlugin` is the name of your plugin class.
 
 #### Use
 Now you can access to all $DIC variables like, in instance and in static places:
 ```php
 self::dic()->ctrl();
+```
+
+You can access the plugin class:
+```php
+self::pl();
 ```
 
 And your class now contain the follow methods:

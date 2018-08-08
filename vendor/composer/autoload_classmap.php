@@ -6,11 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'srag\\DIC\\ADIC' => $baseDir . '/src/classes/ADIC.php',
-    'srag\\DIC\\DIC' => $baseDir . '/src/traits/DIC.php',
-    'srag\\DIC\\DICCache' => $baseDir . '/src/classes/DICCache.php',
-    'srag\\DIC\\DICException' => $baseDir . '/src/exceptions/DICException.php',
-    'srag\\DIC\\IDIC' => $baseDir . '/src/interfaces/IDIC.php',
-    'srag\\DIC\\LegacyDIC' => $baseDir . '/src/classes/LegacyDIC.php',
-    'srag\\DIC\\NewDIC' => $baseDir . '/src/classes/NewDIC.php',
 );

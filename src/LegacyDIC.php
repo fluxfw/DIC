@@ -2,35 +2,12 @@
 
 namespace srag\DIC;
 
-use ilAccessHandler;
-use ilAppEventHandler;
-use ilCtrl;
-use ilDBInterface;
-use ILIAS\DI\BackgroundTaskServices;
-use ILIAS\DI\HTTPServices;
-use ILIAS\DI\LoggingServices;
-use ILIAS\DI\UIServices;
-use ILIAS\Filesystem\Filesystems;
-use ILIAS\FileUpload\FileUpload;
-use ilLanguage;
-use ilLog;
-use ilMailMimeSenderFactory;
-use ilObjUser;
-use ilRbacAdmin;
-use ilRbacReview;
-use ilRbacSystem;
-use ilSetting;
-use ilTabsGUI;
-use ilTemplate;
-use ilToolbarGUI;
-use ilTree;
-
 /**
  * Class LegacyDIC
  *
  * @package srag\DIC
  */
-final class LegacyDIC extends ADIC {
+final class LegacyDIC extends AbstractDIC {
 
 	/**
 	 * @var array
@@ -51,7 +28,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilAccessHandler
+	 * @inheritdoc
 	 */
 	public function access() {
 		return $this->globals["ilAccess"];
@@ -59,7 +36,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilAppEventHandler
+	 * @inheritdoc
 	 */
 	public function appEventHandler() {
 		return $this->globals["ilAppEventHandler"];
@@ -67,9 +44,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return BackgroundTaskServices
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function backgroundTasks() {
 		throw new DICException("BackgroundTaskServices not exists in ILIAS 5.2 or below!");
@@ -77,7 +52,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilCtrl
+	 * @inheritdoc
 	 */
 	public function ctrl() {
 		return $this->globals["ilCtrl"];
@@ -85,7 +60,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilDBInterface
+	 * @inheritdoc
 	 */
 	public function database() {
 		return $this->globals["ilDB"];
@@ -93,9 +68,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return Filesystems
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function filesystem() {
 		throw new DICException("Filesystems not exists in ILIAS 5.2 or below!");
@@ -103,9 +76,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return HTTPServices
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function http() {
 		throw new DICException("HTTPServices not exists in ILIAS 5.2 or below!");
@@ -113,7 +84,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilLanguage
+	 * @inheritdoc
 	 */
 	public function lng() {
 		return $this->globals["lng"];
@@ -121,7 +92,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilLog
+	 * @inheritdoc
 	 */
 	public function log() {
 		return $this->globals["ilLog"];
@@ -129,9 +100,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return LoggingServices
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function logger() {
 		throw new DICException("LoggingServices not exists in ILIAS 5.2 or below!");
@@ -139,9 +108,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilMailMimeSenderFactory
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function mailMimeSenderFactory() {
 		throw new DICException("ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!");
@@ -149,7 +116,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilRbacAdmin
+	 * @inheritdoc
 	 */
 	public function rbacadmin() {
 		return $this->globals["rbacadmin"];
@@ -157,7 +124,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilRbacReview
+	 * @inheritdoc
 	 */
 	public function rbacreview() {
 		return $this->globals["rbacreview"];
@@ -165,7 +132,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilRbacSystem
+	 * @inheritdoc
 	 */
 	public function rbacsystem() {
 		return $this->globals["rbacsystem"];
@@ -173,7 +140,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilSetting
+	 * @inheritdoc
 	 */
 	public function settings() {
 		return $this->globals["ilSetting"];
@@ -181,7 +148,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilTabsGUI
+	 * @inheritdoc
 	 */
 	public function tabs() {
 		return $this->globals["ilTabs"];
@@ -189,7 +156,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilToolbarGUI
+	 * @inheritdoc
 	 */
 	public function toolbar() {
 		return $this->globals["ilToolbar"];
@@ -197,7 +164,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilTemplate
+	 * @inheritdoc
 	 */
 	public function tpl() {
 		return $this->globals["tpl"];
@@ -205,7 +172,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilTree
+	 * @inheritdoc
 	 */
 	public function tree() {
 		return $this->globals["tree"];
@@ -213,9 +180,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return UIServices
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function ui() {
 		throw new DICException("UIServices not exists in ILIAS 5.1 or below!");
@@ -223,9 +188,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return FileUpload
-	 *
-	 * @throws DICException
+	 * @inheritdoc
 	 */
 	public function upload() {
 		throw new DICException("FileUpload not exists in ILIAS 5.2 or below!");
@@ -233,7 +196,7 @@ final class LegacyDIC extends ADIC {
 
 
 	/**
-	 * @return ilObjUser
+	 * @inheritdoc
 	 */
 	public function user() {
 		return $this->globals["ilUser"];

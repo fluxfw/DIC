@@ -24,13 +24,8 @@
     "email": "support@studer-raimann.ch"
   },
   "autoload": {
-    "classmap": [
-      "src/"
-    ]
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "sort-packages": true,
-    "classmap-authoritative": true
+    "psr-4": {
+      "srag\\DIC\\": "src/"
+    }
   }
 }
