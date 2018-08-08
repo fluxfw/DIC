@@ -70,15 +70,18 @@ self::t(string $key, bool $plugin = true);
 For get a template use:
 self::template(string $template, bool $remove_unknown_variables = true, bool $remove_empty_blocks = true, bool $plugin = true);
 
+For plugin dir use:
+self::directory();
+
 #### Clean up
 You can now remove all usages of ILIAS globals in your class and replace it with this library.
 
 #### Other tips
 - Use `__DIR__`
 - Use not `__FILE__`
-- Use not `$pl->getDirectory()`
 - Use not `dirname(dirname(..))`, use `../../`
 - Use also `__DIR__` for `Customizing/..` and use relative paths from your class perspective (Except in `dbupdate.php`)
+- Try to avoid use `$pl`
 
 #### README.md
 Remember to add something like to your README.md file:

@@ -44,6 +44,15 @@ trait DICTrait {
 
 
 	/**
+	 * @return string
+	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
+	 */
+	protected static function directory() {
+		return self::pl()->getDirectory();
+	}
+
+
+	/**
 	 * @param string $key
 	 * @param bool   $plugin
 	 *
