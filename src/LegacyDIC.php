@@ -2,6 +2,8 @@
 
 namespace srag\DIC;
 
+use ilLoggerFactory;
+
 /**
  * Class LegacyDIC
  *
@@ -46,6 +48,14 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function authSession() {
+		return $this->globals["ilAuthSession"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function backgroundTasks() {
 		throw new DICException("BackgroundTaskServices not exists in ILIAS 5.2 or below!");
 	}
@@ -62,8 +72,24 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function browser() {
+		return $this->globals["ilBrowser"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function clientIni() {
 		return $this->globals["ilClientIniFile"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function collator() {
+		return $this->globals["ilCollator"];
 	}
 
 
@@ -78,8 +104,24 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function ctrlStructureReader() {
+		return $this->globals["ilCtrlStructureReader"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function database() {
 		return $this->globals["ilDB"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function error() {
+		return $this->globals["ilErr"];
 	}
 
 
@@ -102,16 +144,16 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
-	public function http() {
-		throw new DICException("HTTPServices not exists in ILIAS 5.2 or below!");
+	public function history() {
+		return $this->globals["ilNavigationHistory"];
 	}
 
 
 	/**
 	 * @inheritdoc
 	 */
-	public function history() {
-		return $this->globals["ilNavigationHistory"];
+	public function http() {
+		throw new DICException("HTTPServices not exists in ILIAS 5.2 or below!");
 	}
 
 
@@ -166,6 +208,14 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function loggerFactory() {
+		return ilLoggerFactory::getInstance();
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function mailMimeSenderFactory() {
 		throw new DICException("ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!");
 	}
@@ -174,8 +224,32 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function mainMenu() {
+		return $this->globals["ilMainMenu"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function objDataCache() {
+		return $this->globals["ilObjDataCache"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function objDefinition() {
 		return $this->globals["objDefinition"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function pluginAdmin() {
+		return $this->globals["ilPluginAdmin"];
 	}
 
 
@@ -200,6 +274,14 @@ final class LegacyDIC extends AbstractDIC {
 	 */
 	public function rbacsystem() {
 		return $this->globals["rbacsystem"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function session() {
+		return $this->globals["sess"];
 	}
 
 

@@ -48,6 +48,14 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function authSession() {
+		return $this->dic["ilAuthSession"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function backgroundTasks() {
 		if ($this->is53()) {
 			return $this->dic->backgroundTasks();
@@ -68,12 +76,28 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function browser() {
+		return $this->dic["ilBrowser"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function clientIni() {
 		if ($this->is54()) {
 			return $this->dic->clientIni();
 		} else {
 			return $this->dic["ilClientIniFile"];
 		}
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function collator() {
+		return $this->dic["ilCollator"];
 	}
 
 
@@ -88,8 +112,24 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function ctrlStructureReader() {
+		return $this->dic["ilCtrlStructureReader"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function database() {
 		return $this->dic->database();
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function error() {
+		return $this->dic["ilErr"];
 	}
 
 
@@ -192,6 +232,14 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function loggerFactory() {
+		return $this->dic["ilLoggerFactory"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function mailMimeSenderFactory() {
 		if ($this->is53()) {
 			return $this->dic["mail.mime.sender.factory"];
@@ -204,8 +252,32 @@ final class NewDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function mainMenu() {
+		return $this->dic["ilMainMenu"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function objDataCache() {
+		return $this->dic["ilObjDataCache"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function objDefinition() {
 		return $this->dic["objDefinition"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function pluginAdmin() {
+		return $this->dic["ilPluginAdmin"];
 	}
 
 
@@ -230,6 +302,14 @@ final class NewDIC extends AbstractDIC {
 	 */
 	public function rbacsystem() {
 		return $this->dic->rbac()->system();
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function session() {
+		return $this->dic["sess"];
 	}
 
 

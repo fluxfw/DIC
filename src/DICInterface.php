@@ -2,11 +2,16 @@
 
 namespace srag\DIC;
 
+use Collator;
 use ilAccess;
 use ilAppEventHandler;
+use ilAuthSession;
 use ilBenchmark;
+use ilBrowser;
 use ilCtrl;
+use ilCtrlStructureReader;
 use ilDBInterface;
+use ilErrorHandling;
 use ilHelpGUI;
 use ILIAS;
 use ILIAS\DI\BackgroundTaskServices;
@@ -19,10 +24,14 @@ use ilIniFile;
 use ilLanguage;
 use ilLocatorGUI;
 use ilLog;
+use ilLoggerFactory;
 use ilMailMimeSenderFactory;
+use ilMainMenuGUI;
 use ilNavigationHistory;
+use ilObjectDataCache;
 use ilObjectDefinition;
 use ilObjUser;
+use ilPluginAdmin;
 use ilRbacAdmin;
 use ilRbacReview;
 use ilRbacSystem;
@@ -32,6 +41,7 @@ use ilTabsGUI;
 use ilTemplate;
 use ilToolbarGUI;
 use ilTree;
+use Session;
 
 /**
  * Interface DICInterface
@@ -53,6 +63,12 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilAuthSession
+	 */
+	public function authSession();
+
+
+	/**
 	 * @return BackgroundTaskServices
 	 *
 	 * @throws DICException BackgroundTaskServices not exists in ILIAS 5.2 or below!
@@ -67,9 +83,21 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilBrowser
+	 */
+	public function browser();
+
+
+	/**
 	 * @return ilIniFile
 	 */
 	public function clientIni();
+
+
+	/**
+	 * @return Collator
+	 */
+	public function collator();
 
 
 	/**
@@ -79,9 +107,21 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilCtrlStructureReader
+	 */
+	public function ctrlStructureReader();
+
+
+	/**
 	 * @return ilDBInterface
 	 */
 	public function database();
+
+
+	/**
+	 * @return ilErrorHandling
+	 */
+	public function error();
 
 
 	/**
@@ -151,6 +191,18 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilLoggerFactory
+	 */
+	public function loggerFactory();
+
+
+	/**
+	 * @return ilMainMenuGUI
+	 */
+	public function mainMenu();
+
+
+	/**
 	 * @return ilMailMimeSenderFactory
 	 *
 	 * @throws DICException ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!
@@ -159,9 +211,21 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilObjectDataCache
+	 */
+	public function objDataCache();
+
+
+	/**
 	 * @return ilObjectDefinition
 	 */
 	public function objDefinition();
+
+
+	/**
+	 * @return ilPluginAdmin
+	 */
+	public function pluginAdmin();
 
 
 	/**
@@ -180,6 +244,12 @@ interface DICInterface {
 	 * @return ilRbacSystem
 	 */
 	public function rbacsystem();
+
+
+	/**
+	 * @return Session
+	 */
+	public function session();
 
 
 	/**
