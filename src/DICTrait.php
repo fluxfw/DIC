@@ -120,7 +120,7 @@ trait DICTrait {
 	 * @param bool   $remove_empty_blocks      Should remove empty blocks?
 	 * @param bool   $plugin                   Plugin template or ILIAS core template?
 	 *
-	 * @return ilTemplate
+	 * @return ilTemplate ilTemplate instance
 	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
 	protected static function template($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true) {
