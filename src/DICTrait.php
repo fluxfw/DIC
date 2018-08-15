@@ -61,16 +61,17 @@ trait DICTrait {
 	/**
 	 * Translate text
 	 *
-	 * @param string $key     Language key
-	 * @param string $module  Language module
-	 * @param bool   $plugin  Plugin language or ILIAS core language?
-	 * @param string $lang    Possibly specific language, otherwise current language, if empty
-	 * @param string $default Default text, if language key not exists
+	 * @param string $key          Language key
+	 * @param string $module       Language module
+	 * @param array  $placeholders Placeholders in your language texst to replace with vsprintf
+	 * @param bool   $plugin       Plugin language or ILIAS core language?
+	 * @param string $lang         Possibly specific language, otherwise current language, if empty
+	 * @param string $default      Default text, if language key not exists
 	 *
 	 * @return string Translated text
 	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
-	protected static function t($key, $module = "", $plugin = true, $lang = "", $default = "MISSING %s") {
+	protected static function t($key, $module = "", array $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s") {
 		if (!empty($module)) {
 			$key = $module . "_" . $key;
 		}
@@ -99,8 +100,10 @@ trait DICTrait {
 			}
 		}
 
-		if ($default !== NULL) {
-			if (empty($txt) || ($txt[0] === "-" && $txt[strlen($txt) - 1] === "-")) {
+		if (!(empty($txt) || ($txt[0] === "-" && $txt[strlen($txt) - 1] === "-"))) {
+			$txt = vsprintf($txt, $placeholders);
+		} else {
+			if ($default !== NULL) {
 				$txt = sprintf($default, $key);
 			}
 		}

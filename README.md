@@ -87,15 +87,16 @@ For translate use:
 /**
  * Translate text
  * 
- * @param string $key     Language key
- * @param string $module  Language module
- * @param bool   $plugin  Plugin language or ILIAS core language?
- * @param string $lang    Possibly specific language, otherwise current language, if empty
- * @param string $default Default text, if language key not exists
+ * @param string $key          Language key
+ * @param string $module       Language module
+ * @param array  $placeholders Placeholders in your language texst to replace with vsprintf
+ * @param bool   $plugin       Plugin language or ILIAS core language?
+ * @param string $lang         Possibly specific language, otherwise current language, if empty
+ * @param string $default      Default text, if language key not exists
  *
  * @return string Translated text
  */
-self::t($key, $module = "", $plugin = true, $lang = "", $default = "MISSING %s");
+self::t($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
 ```
 
 For get a template use:
