@@ -54,24 +54,74 @@ class x {
 `ilXPlugin` is the name of your plugin class.
 
 #### Use
-Now you can access to all $DIC variables like, in instance and in static places:
+You can now access the DIC interface, in instance and in static places:
 ```php
+/**
+ * Get DIC interface
+ * 
+ * @return DICInterface DIC interface
+ */
+self::dic();
+```
+
+For instance you can access the ilCtrl global like:
+```php
+/**
+ * @return ilCtrl
+ */
 self::dic()->ctrl();
 ```
 
 You can access the plugin class:
 ```php
+/**
+ * Get ilPlugin instance
+ * 
+ * @return ilPlugin ilPlugin instance of your plugin
+ */
 self::pl();
 ```
 
 For translate use:
-self::t(string $key, bool $plugin = true);
+```php
+/**
+ * Translate text
+ * 
+ * @param string $key     Language key
+ * @param string $module  Language module
+ * @param bool   $plugin  Plugin language or ILIAS core language?
+ * @param string $lang    Possibly specific language, otherwise current language, if empty
+ * @param string $default Default text, if language key not exists
+ *
+ * @return string Translated text
+ */
+self::t($key, $module = "", $plugin = true, $lang = "", $default = "MISSING %s");
+```
 
 For get a template use:
-self::template(string $template, bool $remove_unknown_variables = true, bool $remove_empty_blocks = true, bool $plugin = true);
+```php
+/**
+ * Get a template
+ * 
+ * @param string $template                 Template path
+ * @param bool   $remove_unknown_variables Should remove unknown variables?
+ * @param bool   $remove_empty_blocks      Should remove empty blocks?
+ * @param bool   $plugin                   Plugin template or ILIAS core template?
+ *
+ * @return ilTemplate
+ */
+self::template($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true);
+```
 
 For plugin dir use:
+```php
+/**
+ * Get plugin directory
+ * 
+ * @return string Plugin directory
+ */
 self::directory();
+```
 
 #### Clean up
 You can now remove all usages of ILIAS globals in your class and replace it with this library.

@@ -2,6 +2,7 @@
 
 namespace srag\DIC;
 
+use ilLanguage;
 use ilPlugin;
 
 /**
@@ -15,6 +16,10 @@ final class DICCache {
 	 * @var DICInterface|null
 	 */
 	private static $dic = NULL;
+	/**
+	 * @var ilLanguage[]
+	 */
+	private static $lng = [];
 	/**
 	 * @var ilPlugin[]
 	 */
@@ -36,6 +41,20 @@ final class DICCache {
 		}
 
 		return self::$dic;
+	}
+
+
+	/**
+	 * @param string $lang
+	 *
+	 * @return ilLanguage
+	 */
+	public static function lng($lang) {
+		if (!isset(self::$lng[$lang])) {
+			self::$lng[$lang] = new ilLanguage($lang);
+		}
+
+		return self::$lng[$lang];
 	}
 
 

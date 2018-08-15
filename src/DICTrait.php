@@ -22,7 +22,9 @@ trait DICTrait {
 	const PLUGIN_CLASS_NAME = "";*/
 
 	/**
-	 * @return DICInterface
+	 * Get DIC interface
+	 *
+	 * @return DICInterface DIC interface
 	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
 	protected static function dic() {
@@ -33,7 +35,9 @@ trait DICTrait {
 
 
 	/**
-	 * @return ilPlugin
+	 * Get ilPlugin instance
+	 *
+	 * @return ilPlugin ilPlugin instance of your plugin
 	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
 	protected static function pl() {
@@ -44,7 +48,9 @@ trait DICTrait {
 
 
 	/**
-	 * @return string
+	 * Get plugin directory
+	 *
+	 * @return string Plugin directory
 	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
 	protected static function directory() {
@@ -53,26 +59,63 @@ trait DICTrait {
 
 
 	/**
-	 * @param string $key
-	 * @param bool   $plugin
+	 * Translate text
 	 *
-	 * @return string
+	 * @param string $key     Language key
+	 * @param string $module  Language module
+	 * @param bool   $plugin  Plugin language or ILIAS core language?
+	 * @param string $lang    Possibly specific language, otherwise current language, if empty
+	 * @param string $default Default text, if language key not exists
+	 *
+	 * @return string Translated text
 	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
-	protected static function t($key, $plugin = true) {
-		if ($plugin) {
-			return self::pl()->txt($key);
-		} else {
-			return self::dic()->lng()->txt($key);
+	protected static function t($key, $module = "", $plugin = true, $lang = "", $default = "MISSING %s") {
+		if (!empty($module)) {
+			$key = $module . "_" . $key;
 		}
+
+		if ($plugin) {
+			if (empty($lang)) {
+				$txt = self::pl()->txt($key);
+			} else {
+				$lng = DICCache::lng($lang);
+
+				$lng->loadLanguageModule(self::pl()->getPrefix());
+
+				$txt = $lng->txt(self::pl()->getPrefix() . "_" . $key, self::pl()->getPrefix());
+			}
+		} else {
+			if (empty($lang)) {
+				$txt = self::dic()->lng()->txt($key);
+			} else {
+				$lng = DICCache::lng($lang);
+
+				if (!empty($module)) {
+					$lng->loadLanguageModule($module);
+				}
+
+				$txt = $lng->txt($key);
+			}
+		}
+
+		if ($default !== NULL) {
+			if (empty($txt) || ($txt[0] === "-" && $txt[strlen($txt) - 1] === "-")) {
+				$txt = sprintf($default, $key);
+			}
+		}
+
+		return $txt;
 	}
 
 
 	/**
-	 * @param string $template
-	 * @param bool   $remove_unknown_variables
-	 * @param bool   $remove_empty_blocks
-	 * @param bool   $plugin
+	 * Get a template
+	 *
+	 * @param string $template                 Template path
+	 * @param bool   $remove_unknown_variables Should remove unknown variables?
+	 * @param bool   $remove_empty_blocks      Should remove empty blocks?
+	 * @param bool   $plugin                   Plugin template or ILIAS core template?
 	 *
 	 * @return ilTemplate
 	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
