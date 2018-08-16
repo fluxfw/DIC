@@ -71,7 +71,7 @@ trait DICTrait {
 	 * @return string Translated text
 	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
 	 */
-	protected static function t($key, $module = "", array $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s") {
+	protected static function translate($key, $module = "", array $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s") {
 		if (!empty($module)) {
 			$key = $module . "_" . $key;
 		}

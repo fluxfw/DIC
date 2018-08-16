@@ -15,24 +15,9 @@ git clone git@git.studer-raimann.ch:ILIAS/Plugins/DIC.git DIC
 #### Composer
 First add the follow to your `composer.json` file:
 ```json
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "srag/DIC",
-        "version": "0.1.0",
-        "type": "package",
-        "source": {
-          "url": "git@git.studer-raimann.ch:ILIAS/Plugins/DIC.git",
-          "type": "git",
-          "reference": "master"
-        }
-      }
-    }
-  ],
-  "require": {
-    "srag/DIC": "^0.1"
-  },
+"require": {
+  "srag/DIC": "^0.1"
+},
 ```
 And run a `composer install`.
 
@@ -96,7 +81,7 @@ For translate use:
  *
  * @return string Translated text
  */
-self::t($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
+self::translate($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
 ```
 
 For get a template use:
