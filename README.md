@@ -119,12 +119,5 @@ You can now remove all usages of ILIAS globals in your class and replace it with
 - Use also `__DIR__` for `Customizing/..` and use relative paths from your class perspective (Except in `dbupdate.php`)
 - Try to avoid use `$pl`
 
-#### README.md
-Remember to add something like to your README.md file:
-```markdown
-### Dependencies
-This plugin depends from [DIC library](https://git.studer-raimann.ch/ILIAS/Plugins/DIC).
-```
-
 #### Requirements
 This library should works with every ILIAS version provided the features are supported.
