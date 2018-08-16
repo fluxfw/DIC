@@ -21,7 +21,9 @@ First add the follow to your `composer.json` file:
 ```
 And run a `composer install`.
 
-If you deliver your plugin, the plugin has it's own copy of this library and the user doesn't need to install the library like above
+If you deliver your plugin, the plugin has it's own copy of this library and the user doesn't need to install the library.
+
+Hint: Because of multiple autoloaders of plugins, it could be, that different versions of this library exists and suddenly your plugin use an old version of an other plugin! So you should keep up to date your plugin with `composer update`.
 
 #### Use trait
 Then add the follow line to your class at top:
