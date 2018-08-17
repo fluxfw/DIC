@@ -59,6 +59,53 @@ trait DICTrait {
 
 
 	/**
+	 * Show html
+	 *
+	 * @param string|ilTemplate $html HTML code or ilTemplate instance
+	 * @param bool              $main Display main skin?
+	 *
+	 * TODO: WiP
+	 */
+	protected static function show($html, $main = true) {
+		if ($html instanceof ilTemplate) {
+			$html = $html->get();
+		}
+
+		if (self::dic()->ctrl()->isAsynch()) {
+			echo $html;
+
+			exit;
+		} else {
+			if ($main) {
+				self::dic()->tpl()->getStandardTemplate();
+			}
+			self::dic()->tpl()->setContent($html);
+			self::dic()->tpl()->show();
+		}
+	}
+
+
+	/**
+	 * Get a template
+	 *
+	 * @param string $template                 Template path
+	 * @param bool   $remove_unknown_variables Should remove unknown variables?
+	 * @param bool   $remove_empty_blocks      Should remove empty blocks?
+	 * @param bool   $plugin                   Plugin template or ILIAS core template?
+	 *
+	 * @return ilTemplate ilTemplate instance
+	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
+	 */
+	protected static function template($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true) {
+		if ($plugin) {
+			return self::pl()->getTemplate($template, $remove_unknown_variables, $remove_empty_blocks);
+		} else {
+			return new ilTemplate($template, $remove_unknown_variables, $remove_empty_blocks);
+		}
+	}
+
+
+	/**
 	 * Translate text
 	 *
 	 * @param string $key          Language key
@@ -109,26 +156,6 @@ trait DICTrait {
 		}
 
 		return $txt;
-	}
-
-
-	/**
-	 * Get a template
-	 *
-	 * @param string $template                 Template path
-	 * @param bool   $remove_unknown_variables Should remove unknown variables?
-	 * @param bool   $remove_empty_blocks      Should remove empty blocks?
-	 * @param bool   $plugin                   Plugin template or ILIAS core template?
-	 *
-	 * @return ilTemplate ilTemplate instance
-	 * @ throws DICException Your class needs to implement the PLUGIN_CLASS_NAME constant!
-	 */
-	protected static function template($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true) {
-		if ($plugin) {
-			return self::pl()->getTemplate($template, $remove_unknown_variables, $remove_empty_blocks);
-		} else {
-			return new ilTemplate($template, $remove_unknown_variables, $remove_empty_blocks);
-		}
 	}
 
 

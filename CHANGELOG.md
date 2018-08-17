@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.0]
+- Show html
+
 ## [1.0.2]
 - Added changelog file
 

@@ -16,7 +16,7 @@ git clone git@git.studer-raimann.ch:ILIAS/Plugins/DIC.git DIC
 First add the follow to your `composer.json` file:
 ```json
 "require": {
-  "srag/dic": "^0.1.2"
+  "srag/dic": "^0.2.0"
 },
 ```
 And run a `composer install`.
@@ -69,21 +69,15 @@ You can access the plugin class:
 self::pl();
 ```
 
-For translate use:
+For show html use:
 ```php
 /**
- * Translate text
+ * Show html
  * 
- * @param string $key          Language key
- * @param string $module       Language module
- * @param array  $placeholders Placeholders in your language texst to replace with vsprintf
- * @param bool   $plugin       Plugin language or ILIAS core language?
- * @param string $lang         Possibly specific language, otherwise current language, if empty
- * @param string $default      Default text, if language key not exists
- *
- * @return string Translated text
+ * @param string|ilTemplate $html HTML code or ilTemplate instance
+ * @param bool              $main Display main skin?
  */
-self::translate($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
+self::show($html, $main = true);
 ```
 
 For get a template use:
@@ -99,6 +93,23 @@ For get a template use:
  * @return ilTemplate ilTemplate instance
  */
 self::template($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true);
+```
+
+For translate use:
+```php
+/**
+ * Translate text
+ * 
+ * @param string $key          Language key
+ * @param string $module       Language module
+ * @param array  $placeholders Placeholders in your language texst to replace with vsprintf
+ * @param bool   $plugin       Plugin language or ILIAS core language?
+ * @param string $lang         Possibly specific language, otherwise current language, if empty
+ * @param string $default      Default text, if language key not exists
+ *
+ * @return string Translated text
+ */
+self::translate($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
 ```
 
 For plugin dir use:
