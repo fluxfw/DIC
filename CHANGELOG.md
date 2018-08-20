@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.2.1]
+- Correct use of namespace
+
 ## [0.2.0]
 - Output html
 

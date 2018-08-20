@@ -26,16 +26,17 @@ If you deliver your plugin, the plugin has it's own copy of this library and the
 Hint: Because of multiple autoloaders of plugins, it could be, that different versions of this library exists and suddenly your plugin use an old version of an other plugin! So you should keep up to date your plugin with `composer update`.
 
 #### Use trait
-Then add the follow line to your class at top:
+Declare your class like follow:
 ```php
-...
+//...
+use srag\DIC\DICTrait;
+//...
 class x {
-
-	use srag\DIC\DICTrait;
-	
+	//...
+	use DICTrait;
+	//...
 	const PLUGIN_CLASS_NAME = ilXPlugin::class;
-	
-	...
+	//...
 }
 ```
 `ilXPlugin` is the name of your plugin class.
