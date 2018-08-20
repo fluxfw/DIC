@@ -69,15 +69,25 @@ You can access the plugin class:
 self::pl();
 ```
 
-For show html use:
+For plugin dir use:
 ```php
 /**
- * Show html
+ * Get plugin directory
+ * 
+ * @return string Plugin directory
+ */
+self::directory();
+```
+
+For Output html use:
+```php
+/**
+ * Output html
  * 
  * @param string|ilTemplate $html HTML code or ilTemplate instance
  * @param bool              $main Display main skin?
  */
-self::show($html, $main = true);
+self::output($html, $main = true);
 ```
 
 For get a template use:
@@ -110,16 +120,6 @@ For translate use:
  * @return string Translated text
  */
 self::translate($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
-```
-
-For plugin dir use:
-```php
-/**
- * Get plugin directory
- * 
- * @return string Plugin directory
- */
-self::directory();
 ```
 
 #### Clean up

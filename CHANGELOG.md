@@ -1,7 +1,7 @@
 # Changelog
 
 ## [0.2.0]
-- Show html
+- Output html
 
 ## [0.1.2]
 - Added changelog file

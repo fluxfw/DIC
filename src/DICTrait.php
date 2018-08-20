@@ -59,22 +59,18 @@ trait DICTrait {
 
 
 	/**
-	 * Show html
+	 * Output html
 	 *
 	 * @param string|ilTemplate $html HTML code or ilTemplate instance
 	 * @param bool              $main Display main skin?
-	 *
-	 * TODO: WiP
 	 */
-	protected static function show($html, $main = true) {
+	protected static function output($html, $main = true) {
 		if ($html instanceof ilTemplate) {
 			$html = $html->get();
 		}
 
 		if (self::dic()->ctrl()->isAsynch()) {
 			echo $html;
-
-			exit;
 		} else {
 			if ($main) {
 				self::dic()->tpl()->getStandardTemplate();
@@ -82,6 +78,8 @@ trait DICTrait {
 			self::dic()->tpl()->setContent($html);
 			self::dic()->tpl()->show();
 		}
+
+		exit;
 	}
 
 
