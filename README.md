@@ -31,7 +31,7 @@ Then add the follow line to your class at top:
 ...
 class x {
 
-	use srag\DIC\DICTrait;
+	use \srag\DIC\DICTrait;
 	
 	const PLUGIN_CLASS_NAME = ilXPlugin::class;
 	
