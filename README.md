@@ -1,15 +1,5 @@
 Use all ILIAS globals in your class
 
-### Install
-For development you should install this library like follow:
-
-Start at your ILIAS root directory 
-```bash
-mkdir -p Customizing/global/plugins/Libraries/  
-cd Customizing/global/plugins/Libraries/  
-git clone git@git.studer-raimann.ch:ILIAS/Plugins/DIC.git DIC
-```
-
 ### Usage
 
 #### Composer
@@ -145,3 +135,13 @@ This library should works with every ILIAS version provided the features are sup
 * Adjustment suggestions which are not yet worked out in detail by Jira tasks under https://jira.studer-raimann.ch/projects/LDIC
 * Bug reports under https://jira.studer-raimann.ch/projects/LDIC
 * For external developers please send an email to support-custom1@studer-raimann.ch
+
+### Development
+If you want development in this library you should install this library like follow:
+
+Start at your ILIAS root directory 
+```bash
+mkdir -p Customizing/global/plugins/Libraries/  
+cd Customizing/global/plugins/Libraries/  
+git clone git@git.studer-raimann.ch:ILIAS/Plugins/DIC.git DIC
+```
