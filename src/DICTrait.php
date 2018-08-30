@@ -2,6 +2,7 @@
 
 namespace srag\DIC;
 
+use ilConfirmationGUI;
 use ilPlugin;
 use ilPropertyFormGUI;
 use ilTemplate;
@@ -62,14 +63,15 @@ trait DICTrait {
 	/**
 	 * Output html
 	 *
-	 * @param string|ilTemplate $html HTML code or ilTemplate instance
-	 * @param bool              $main Display main skin?
+	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI $html HTML code or ilTemplate instance
+	 * @param bool                                                  $main Display main skin?
 	 */
 	protected static function output($html, $main = true) {
 		switch (true) {
 			case ($html instanceof ilTemplate):
 				$html = $html->get();
 				break;
+			case ($html instanceof ilConfirmationGUI):
 			case ($html instanceof ilPropertyFormGUI):
 				$html = $html->getHTML();
 				break;

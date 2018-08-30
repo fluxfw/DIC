@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.5.1]
+- Supports output ilConfirmationGUI
+
 ## [0.5.0]
 - Supports output ilPropertyFormGUI
 
