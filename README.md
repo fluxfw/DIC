@@ -6,7 +6,7 @@ Use all ILIAS globals in your class
 First add the follow to your `composer.json` file:
 ```json
 "require": {
-  "srag/dic": "^0.5.0"
+  "srag/dic": "^0.5.1"
 },
 ```
 And run a `composer install`.
@@ -75,8 +75,8 @@ For Output html use:
 /**
  * Output html
  * 
- * @param string|ilTemplate $html HTML code or ilTemplate instance
- * @param bool              $main Display main skin?
+ * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI $html HTML code or ilTemplate instance
+ * @param bool                                                  $main Display main skin?
  */
 self::output($html, $main = true);
 ```
