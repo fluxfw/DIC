@@ -3,6 +3,7 @@
 namespace srag\DIC;
 
 use ilPlugin;
+use ilPropertyFormGUI;
 use ilTemplate;
 
 /**
@@ -65,8 +66,15 @@ trait DICTrait {
 	 * @param bool              $main Display main skin?
 	 */
 	protected static function output($html, $main = true) {
-		if ($html instanceof ilTemplate) {
-			$html = $html->get();
+		switch (true) {
+			case ($html instanceof ilTemplate):
+				$html = $html->get();
+				break;
+			case ($html instanceof ilPropertyFormGUI):
+				$html = $html->getHTML();
+				break;
+			default:
+				break;
 		}
 
 		if (self::dic()->ctrl()->isAsynch()) {
