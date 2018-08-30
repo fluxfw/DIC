@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.5.0]
+- Supports output ilPropertyFormGUI
+
 ## [0.4.0]
 - DICStatic
 
