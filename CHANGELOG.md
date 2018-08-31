@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.5.6]
+- Exception: Please use the placeholders feature and not direct `sprintf` or `vsprintf` in your code!
+
 ## [0.5.5]
 - Update readme
 
