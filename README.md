@@ -113,8 +113,6 @@ For translate use:
 self::translate($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
 ```
 
-Should you get an exception like `Warning: sprintf(): Too few arguments`, please use the placeholders feature and not direct `sprintf` in your code.
-
 If you really need DICTrait outside a class (For instance in `dbupdate.php`), use `DICStatic::dic()`
 
 #### Clean up

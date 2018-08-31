@@ -2,6 +2,7 @@
 
 namespace srag\DIC;
 
+use Exception;
 use ilConfirmationGUI;
 use ilPlugin;
 use ilPropertyFormGUI;
@@ -157,10 +158,18 @@ trait DICTrait {
 		}
 
 		if (!(empty($txt) || ($txt[0] === "-" && $txt[strlen($txt) - 1] === "-") || $txt === "MISSING" || strpos($txt, "MISSING ") === 0)) {
-			$txt = vsprintf($txt, $placeholders);
+			try {
+				$txt = vsprintf($txt, $placeholders);
+			} catch (Exception $ex) {
+				throw new DICException("Please use the placeholders feature and not direct `sprintf` or `vsprintf` in your code!");
+			}
 		} else {
 			if ($default !== NULL) {
-				$txt = sprintf($default, $key);
+				try {
+					$txt = sprintf($default, $key);
+				} catch (Exception $ex) {
+					throw new DICException("Please use only one placeholder in the default text for the key!");
+				}
 			}
 		}
 
