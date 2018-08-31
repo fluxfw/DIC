@@ -70,7 +70,7 @@ For plugin dir use:
 self::directory();
 ```
 
-For Output html use:
+For output html use:
 ```php
 /**
  * Output html
@@ -119,6 +119,7 @@ If you really need DICTrait outside a class (For instance in `dbupdate.php`), us
 
 #### Clean up
 You can now remove all usages of ILIAS globals in your class and replace it with this library.
+Please avoid to store in variables.
 
 #### Other tips
 - Use `__DIR__`
