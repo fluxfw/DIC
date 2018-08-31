@@ -70,7 +70,7 @@ For plugin dir use:
 self::directory();
 ```
 
-For Output html use:
+For output html use:
 ```php
 /**
  * Output html
