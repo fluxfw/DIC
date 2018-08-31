@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.5.3]
+- Mark some methods as `final`
+
 ## [0.5.2]
 - Use always latest version of DIC
 
