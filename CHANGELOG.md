@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.7.3]
+- Update PHPDoc and visibility
+
 ## [0.7.2]
 - Update readme and PHPDoc
 - Exception: Class $plugin_class_name not extends ilPlugin!
