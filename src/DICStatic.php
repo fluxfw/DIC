@@ -56,18 +56,18 @@ final class DICStatic implements DICStaticInterface {
 			}
 
 			if (method_exists($plugin_class_name, "getInstance")) {
-				$plugin = $plugin_class_name::getInstance();
+				$plugin_object = $plugin_class_name::getInstance();
 			} else {
-				$plugin = new $plugin_class_name();
+				$plugin_object = new $plugin_class_name();
 
 				self::dic()->log()->write("DICLog: Please implement $plugin_class_name::getInstance()!", ilLogLevel::DEBUG);
 			}
 
-			if (!$plugin instanceof ilPlugin) {
+			if (!$plugin_object instanceof ilPlugin) {
 				throw new DICException("Class $plugin_class_name not extends ilPlugin!");
 			}
 
-			self::$plugins[$plugin_class_name] = new Plugin($plugin);
+			self::$plugins[$plugin_class_name] = new Plugin($plugin_object);
 		}
 
 		return self::$plugins[$plugin_class_name];
