@@ -22,6 +22,8 @@ final class LegacyDIC extends AbstractDIC {
 	 * LegacyDIC constructor
 	 *
 	 * @param array $globals
+	 *
+	 * @access namespace
 	 */
 	public function __construct(array &$globals) {
 		parent::__construct();

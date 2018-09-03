@@ -123,7 +123,7 @@ For translate use:
 self::plugin()->translate($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
 ```
 
-If you really need the ILIAS plugin object use:
+If you really need the ILIAS plugin object use but avoid this:
 ```php
 /**
  * Get ILIAS plugin object instance

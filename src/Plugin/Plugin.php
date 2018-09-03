@@ -34,6 +34,8 @@ final class Plugin implements PluginInterface {
 	 * Plugin constructor
 	 *
 	 * @param ilPlugin $plugin
+	 *
+	 * @access namespace
 	 */
 	public function __construct(ilPlugin $plugin) {
 		$this->plugin = $plugin;
