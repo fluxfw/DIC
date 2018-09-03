@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.8.1]
+- Update PHPDoc
+
 ## [0.8.0]
 - Supports output JSON
 - Exception: Class {get_class($value)} is not supported for output!

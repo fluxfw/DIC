@@ -33,7 +33,7 @@ interface PluginInterface {
 	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|int|double|bool|array|stdClass|null|JsonSerializable $value html, gui instance or json value
 	 * @param bool                                                                                                                   $main  Display main skin?
 	 *
-	 * @throws DICException
+	 * @throws DICException Class {get_class($value)} is not supported for output!
 	 * @throws ilTemplateException
 	 */
 	public function output($value, $main = true);
