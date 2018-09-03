@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.7.2]
+- Update readme and PHPDoc
+- Exception: Class $plugin_class_name not extends ilPlugin!
+
 ## [0.7.1]
 - Fix wrong DICInterface
 

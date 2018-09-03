@@ -27,16 +27,18 @@ final class Plugin implements PluginInterface {
 	/**
 	 * @var ilPlugin
 	 */
-	private $plugin;
+	private $plugin_object;
 
 
 	/**
 	 * Plugin constructor
 	 *
-	 * @param ilPlugin $plugin
+	 * @param ilPlugin $plugin_object
+	 *
+	 * @access namespace
 	 */
-	public function __construct(ilPlugin $plugin) {
-		$this->plugin = $plugin;
+	public function __construct(ilPlugin $plugin_object) {
+		$this->plugin_object = $plugin_object;
 	}
 
 
@@ -44,7 +46,7 @@ final class Plugin implements PluginInterface {
 	 * @inheritdoc
 	 */
 	public function directory() {
-		return $this->plugin->getDirectory();
+		return $this->plugin_object->getDirectory();
 	}
 
 
@@ -85,7 +87,7 @@ final class Plugin implements PluginInterface {
 	 */
 	public function template($template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true) {
 		if ($plugin) {
-			return $this->plugin->getTemplate($template, $remove_unknown_variables, $remove_empty_blocks);
+			return $this->plugin_object->getTemplate($template, $remove_unknown_variables, $remove_empty_blocks);
 		} else {
 			return new ilTemplate($template, $remove_unknown_variables, $remove_empty_blocks);
 		}
@@ -102,19 +104,19 @@ final class Plugin implements PluginInterface {
 
 		if ($plugin) {
 			if (empty($lang)) {
-				$txt = $this->plugin->txt($key);
+				$txt = $this->plugin_object->txt($key);
 			} else {
-				$lng = self::language($lang);
+				$lng = self::getLanguage($lang);
 
-				$lng->loadLanguageModule($this->plugin->getPrefix());
+				$lng->loadLanguageModule($this->plugin_object->getPrefix());
 
-				$txt = $lng->txt($this->plugin->getPrefix() . "_" . $key, $this->plugin->getPrefix());
+				$txt = $lng->txt($this->plugin_object->getPrefix() . "_" . $key, $this->plugin_object->getPrefix());
 			}
 		} else {
 			if (empty($lang)) {
 				$txt = self::dic()->language()->txt($key);
 			} else {
-				$lng = self::language($lang);
+				$lng = self::getLanguage($lang);
 
 				if (!empty($module)) {
 					$lng->loadLanguageModule($module);
@@ -148,7 +150,7 @@ final class Plugin implements PluginInterface {
 	 * @inheritdoc
 	 */
 	public function getPluginObject() {
-		return $this->plugin;
+		return $this->plugin_object;
 	}
 
 
@@ -157,7 +159,7 @@ final class Plugin implements PluginInterface {
 	 *
 	 * @return ilLanguage
 	 */
-	protected static function language($lang) {
+	private static function getLanguage($lang) {
 		if (!isset(self::$languages[$lang])) {
 			self::$languages[$lang] = new ilLanguage($lang);
 		}

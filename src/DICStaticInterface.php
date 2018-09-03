@@ -29,6 +29,7 @@ interface DICStaticInterface {
 	 * @return PluginInterface Plugin interface
 	 *
 	 * @throws DICException Class $plugin_class_name not exists!
+	 * @throws DICException Class $plugin_class_name not extends ilPlugin!
 	 * @logs   DEBUG Please implement $plugin_class_name::getInstance()!
 	 */
 	public static function plugin($plugin_class_name);

@@ -3,6 +3,7 @@
 namespace srag\DIC;
 
 use ilLogLevel;
+use ilPlugin;
 use League\Flysystem\PluginInterface;
 use srag\DIC\DIC\DICInterface;
 use srag\DIC\DIC\LegacyDIC;
@@ -55,14 +56,18 @@ final class DICStatic implements DICStaticInterface {
 			}
 
 			if (method_exists($plugin_class_name, "getInstance")) {
-				$plugin = $plugin_class_name::getInstance();
+				$plugin_object = $plugin_class_name::getInstance();
 			} else {
-				$plugin = new $plugin_class_name();
+				$plugin_object = new $plugin_class_name();
 
 				self::dic()->log()->write("DICLog: Please implement $plugin_class_name::getInstance()!", ilLogLevel::DEBUG);
 			}
 
-			self::$plugins[$plugin_class_name] = new Plugin($plugin);
+			if (!$plugin_object instanceof ilPlugin) {
+				throw new DICException("Class $plugin_class_name not extends ilPlugin!");
+			}
+
+			self::$plugins[$plugin_class_name] = new Plugin($plugin_object);
 		}
 
 		return self::$plugins[$plugin_class_name];

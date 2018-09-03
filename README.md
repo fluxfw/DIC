@@ -57,7 +57,7 @@ You can now access the plugin interface, in instance and in static places:
  * 
  * @return PluginInterface Plugin interface
  *
- * @throws DICException 
+ * @throws DICException
  */
 self::plugin();
 ```
@@ -123,7 +123,7 @@ For translate use:
 self::plugin()->translate($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
 ```
 
-If you really need the ILIAS plugin object use:
+If you really need the ILIAS plugin object use but avoid this:
 ```php
 /**
  * Get ILIAS plugin object instance
