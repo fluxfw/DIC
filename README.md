@@ -74,17 +74,17 @@ For plugin dir use:
 self::plugin()->directory();
 ```
 
-For output html use:
+For output html, gui or json use:
 ```php
 /**
- * Output html
+ * Output HTML, GUI or JSON
  * 
- * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI $html HTML code or some gui instance
- * @param bool                                                              $main Display main skin?
+ * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|int|double|bool|array|stdClass|JsonSerializable $html HTML code or some gui instance
+ * @param bool                                                                                                                   $main Display main skin?
  *
  * @throws DICException
  */
-self::plugin()->output($html, $main = true);
+self::plugin()->output($value, $main = true);
 ```
 
 For get a template use:
