@@ -57,7 +57,7 @@ You can now access the plugin interface, in instance and in static places:
  * 
  * @return PluginInterface Plugin interface
  *
- * @throws DICException 
+ * @throws DICException
  */
 self::plugin();
 ```
