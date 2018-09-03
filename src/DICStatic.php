@@ -16,7 +16,7 @@ use ilTemplate;
  *
  * @package srag\DIC
  */
-final class DICStatic {
+final class DICStatic implements DICStaticInterface {
 
 	/**
 	 * @var DICInterface|null
@@ -33,9 +33,7 @@ final class DICStatic {
 
 
 	/**
-	 * Get DIC interface
-	 *
-	 * @return DICInterface DIC interface
+	 * @inheritdoc
 	 */
 	public static final function dic() {
 		if (self::$dic === NULL) {
@@ -53,12 +51,7 @@ final class DICStatic {
 
 
 	/**
-	 * @param string $plugin_class_name
-	 *
-	 * @return ilPlugin
-	 *
-	 * @throws DICException Class $plugin_class_name not exists!
-	 * @logs   DEBUG Please implement $plugin_class_name::getInstance()!
+	 * @inheritdoc
 	 */
 	public static final function pl($plugin_class_name) {
 		if (!isset(self::$pl[$plugin_class_name])) {
@@ -79,14 +72,7 @@ final class DICStatic {
 
 
 	/**
-	 * Get plugin directory
-	 *
-	 * @param string $plugin_class_name
-	 *
-	 * @return string Plugin directory
-	 *
-	 * @throws DICException Class $plugin_class_name not exists!
-	 * @logs   DEBUG Please implement $plugin_class_name::getInstance()!
+	 * @inheritdoc
 	 */
 	public static final function directory($plugin_class_name) {
 		return self::pl($plugin_class_name)->getDirectory();
@@ -94,10 +80,7 @@ final class DICStatic {
 
 
 	/**
-	 * Output html
-	 *
-	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI $html HTML code or some gui instance
-	 * @param bool                                                              $main Display main skin?
+	 * @inheritdoc
 	 */
 	public static final function output($html, $main = true) {
 		switch (true) {
@@ -129,18 +112,7 @@ final class DICStatic {
 
 
 	/**
-	 * Get a template
-	 *
-	 * @param string $plugin_class_name
-	 * @param string $template                 Template path
-	 * @param bool   $remove_unknown_variables Should remove unknown variables?
-	 * @param bool   $remove_empty_blocks      Should remove empty blocks?
-	 * @param bool   $plugin                   Plugin template or ILIAS core template?
-	 *
-	 * @return ilTemplate ilTemplate instance
-	 *
-	 * @throws DICException Class $plugin_class_name not exists!
-	 * @logs   DEBUG Please implement $plugin_class_name::getInstance()!
+	 * @inheritdoc
 	 */
 	public static final function template($plugin_class_name, $template, $remove_unknown_variables = true, $remove_empty_blocks = true, $plugin = true) {
 		if ($plugin) {
@@ -152,22 +124,7 @@ final class DICStatic {
 
 
 	/**
-	 * Translate text
-	 *
-	 * @param string $plugin_class_name
-	 * @param string $key          Language key
-	 * @param string $module       Language module
-	 * @param array  $placeholders Placeholders in your language texst to replace with vsprintf
-	 * @param bool   $plugin       Plugin language or ILIAS core language?
-	 * @param string $lang         Possibly specific language, otherwise current language, if empty
-	 * @param string $default      Default text, if language key not exists
-	 *
-	 * @return string Translated text
-	 *
-	 * @throws DICException Class $plugin_class_name not exists!
-	 * @throws DICException Please use the placeholders feature and not direct `sprintf` or `vsprintf` in your code!
-	 * @throws DICException Please use only one placeholder in the default text for the key!
-	 * @logs   DEBUG Please implement $plugin_class_name::getInstance()!
+	 * @inheritdoc
 	 */
 	public static final function translate($plugin_class_name, $key, $module = "", array $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s") {
 		if (!empty($module)) {
