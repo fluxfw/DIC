@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.7.0]
+- PluginInterface
+- Some sub namespaces
+
 ## [0.6.0]
 - Supports output ilTable2GUI
 - Better DICException throws declare
