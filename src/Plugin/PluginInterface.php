@@ -8,7 +8,9 @@ use ilPropertyFormGUI;
 use ilTable2GUI;
 use ilTemplate;
 use ilTemplateException;
+use JsonSerializable;
 use srag\DIC\Exception\DICException;
+use stdClass;
 
 /**
  * Interface PluginInterface
@@ -26,14 +28,15 @@ interface PluginInterface {
 
 
 	/**
-	 * Output html
+	 * Output HTML, GUI or JSON
 	 *
-	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI $html HTML code or some gui instance
-	 * @param bool                                                              $main Display main skin?
+	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|int|double|bool|array|stdClass|null|JsonSerializable $value html, gui instance or json value
+	 * @param bool                                                                                                                   $main  Display main skin?
 	 *
+	 * @throws DICException
 	 * @throws ilTemplateException
 	 */
-	public function output($html, $main = true);
+	public function output($value, $main = true);
 
 
 	/**

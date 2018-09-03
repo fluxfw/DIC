@@ -9,6 +9,7 @@ use ilPlugin;
 use ilPropertyFormGUI;
 use ilTable2GUI;
 use ilTemplate;
+use JsonSerializable;
 use srag\DIC\DICTrait;
 use srag\DIC\Exception\DICException;
 
@@ -53,29 +54,58 @@ final class Plugin implements PluginInterface {
 	/**
 	 * @inheritdoc
 	 */
-	public function output($html, $main = true) {
+	public function output($value, $main = true) {
 		switch (true) {
-			case ($html instanceof ilTemplate):
-				$html = $html->get();
-				break;
-			case ($html instanceof ilConfirmationGUI):
-			case ($html instanceof ilPropertyFormGUI):
-			case ($html instanceof ilTable2GUI):
-				$html = $html->getHTML();
-				break;
-			default:
-				$html = strval($html);
-				break;
-		}
+			// JSON
+			case (is_int($value)):
+			case (is_double($value)):
+			case (is_bool($value)):
+			case (is_array($value)):
+			case (is_object($value)):
+			case ($value === NULL):
+			case ($value instanceof JsonSerializable):
+				$value = json_encode($value);
 
-		if (self::dic()->ctrl()->isAsynch()) {
-			echo $html;
-		} else {
-			if ($main) {
-				self::dic()->template()->getStandardTemplate();
-			}
-			self::dic()->template()->setContent($html);
-			self::dic()->template()->show();
+				header("Content-Type: application/json; charset=utf-8");
+
+				echo $value;
+
+				break;
+
+			default:
+				switch (true) {
+					// HTML
+					case (is_string($value)):
+						$html = strval($value);
+						break;
+
+					// GUI instance
+					case ($value instanceof ilTemplate):
+						$html = $value->get();
+						break;
+					case ($value instanceof ilConfirmationGUI):
+					case ($value instanceof ilPropertyFormGUI):
+					case ($value instanceof ilTable2GUI):
+						$html = $value->getHTML();
+						break;
+
+					// Not supported!
+					default:
+						throw new DICException("Class " . get_class($value) . " is not supported for output!");
+						break;
+				}
+
+				if (self::dic()->ctrl()->isAsynch()) {
+					echo $html;
+				} else {
+					if ($main) {
+						self::dic()->template()->getStandardTemplate();
+					}
+					self::dic()->template()->setContent($html);
+					self::dic()->template()->show();
+				}
+
+				break;
 		}
 
 		exit;
