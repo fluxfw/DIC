@@ -2,6 +2,7 @@
 
 namespace srag\DIC;
 
+use srag\DIC\DIC\DICInterface;
 use srag\DIC\Exception\DICException;
 use srag\DIC\Plugin\PluginInterface;
 

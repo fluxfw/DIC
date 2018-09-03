@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.7.1]
+- Fix wrong DICInterface
+
 ## [0.7.0]
 - PluginInterface
 - Some sub namespaces
