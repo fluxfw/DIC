@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.8.4]
+- Update `translate` hints
+
 ## [0.8.3]
 - Hint 'Because `translate` use `vsprintf`, you need to escape `%` with `%%` in your language strings if it is no placeholder!'
 

@@ -122,7 +122,9 @@ For translate use:
  */
 self::plugin()->translate($key, $module = "", $placeholders = [], $plugin = true, $lang = "", $default = "MISSING %s");
 ```
-Because `translate` use `vsprintf`, you need to escape `%` with `%%` in your language strings if it is no placeholder!
+Hints:
+- Please use not more manually `sprintf` or `vsprintf`, use the `$placeholders` parameter. Otherwise you will get an appropriate DICException thrown. This because `translate` use always `vsprintf` and if you pass to few palceholders, `vsprintf` will throw an Exception.
+- Because `translate` use `vsprintf`, you need to escape `%` with `%%` in your language strings if it is no placeholder!
 
 If you really need the ILIAS plugin object use but avoid this:
 ```php
