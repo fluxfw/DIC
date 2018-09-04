@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.8.2]
+- Hint 'Because `translate` use `vsprintf`, you need to escape `%` with `%%` if it is no placeholder!'
+
 ## [0.8.1]
 - Update PHPDoc
 
