@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.8.6]
+- PHP7 comments
+
 ## [0.8.5]
 - PHP7 comments
 
