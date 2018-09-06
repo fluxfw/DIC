@@ -31,7 +31,7 @@ final class DICStatic implements DICStaticInterface {
 	/**
 	 * @inheritdoc
 	 */
-	public static function dic() {
+	public static function dic()/*: DICInterface*/ {
 		if (self::$dic === NULL) {
 			if (ILIAS_VERSION_NUMERIC >= "5.2") {
 				global $DIC;
@@ -49,7 +49,8 @@ final class DICStatic implements DICStaticInterface {
 	/**
 	 * @inheritdoc
 	 */
-	public static function plugin($plugin_class_name) {
+	public static function plugin(/*string*/
+		$plugin_class_name)/*: PluginInterface*/ {
 		if (!isset(self::$plugins[$plugin_class_name])) {
 			if (!class_exists($plugin_class_name)) {
 				throw new DICException("Class $plugin_class_name not exists!");
