@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.8.8]
+- Add `@author` to classes
+
 ## [0.8.7]
 - Fix output
 
