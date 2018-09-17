@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.8.10]
+Update readme
+
 ## [0.8.9]
 - Added dependencies to readme
 
