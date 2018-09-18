@@ -229,6 +229,14 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function mailMimeTransportFactory()/*: ilMailMimeTransportFactory*/ {
+		throw new DICException("ilMailMimeTransportFactory not exists in ILIAS 5.2 or below!");
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function mainMenu()/*: ilMainMenuGUI*/ {
 		return $this->globals["ilMainMenu"];
 	}

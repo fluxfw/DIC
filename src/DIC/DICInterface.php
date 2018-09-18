@@ -26,6 +26,7 @@ use ilLocatorGUI;
 use ilLog;
 use ilLoggerFactory;
 use ilMailMimeSenderFactory;
+use ilMailMimeTransportFactory;
 use ilMainMenuGUI;
 use ilNavigationHistory;
 use ilObjectDataCache;
@@ -238,6 +239,17 @@ interface DICInterface {
 	 * @since ILIAS 5.3
 	 */
 	public function mailMimeSenderFactory()/*: ilMailMimeSenderFactory*/
+	;
+
+
+	/**
+	 * @return ilMailMimeTransportFactory
+	 *
+	 * @throws DICException ilMailMimeTransportFactory not exists in ILIAS 5.2 or below!
+	 *
+	 * @since ILIAS 5.3
+	 */
+	public function mailMimeTransportFactory()/*: ilMailMimeTransportFactory*/
 	;
 
 
