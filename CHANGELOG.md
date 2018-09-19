@@ -1,10 +1,13 @@
 # Changelog
 
+## [0.8.x]
+- `mailMimeTransportFactory`
+
 ## [0.8.11]
-Add `@since`
+- Add `@since`
 
 ## [0.8.10]
-Update readme
+- Update readme
 
 ## [0.8.9]
 - Added dependencies to readme
