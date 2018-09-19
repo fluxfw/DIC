@@ -54,11 +54,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function authSession()/*: ilAuthSession*/ {
-		if ($this->is54()) {
-			return $this->dic->authSession();
-		} else {
-			return $this->dic["ilAuthSession"];
-		}
+		return $this->dic["ilAuthSession"];
 	}
 
 
@@ -78,11 +74,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function benchmark()/*: ilBenchmark*/ {
-		if ($this->is54()) {
-			return $this->dic->benchmark();
-		} else {
-			return $this->dic["ilBench"];
-		}
+		return $this->dic["ilBench"];
 	}
 
 
@@ -90,11 +82,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function browser()/*: ilBrowser*/ {
-		if ($this->is54()) {
-			return $this->dic->browser();
-		} else {
-			return $this->dic["ilBrowser"];
-		}
+		return $this->dic["ilBrowser"];
 	}
 
 
@@ -114,11 +102,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function collator()/*: Collator*/ {
-		if ($this->is54()) {
-			return $this->dic->collator();
-		} else {
-			return $this->dic["ilCollator"];
-		}
+		return $this->dic["ilCollator"];
 	}
 
 
@@ -134,11 +118,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function ctrlStructureReader()/*: ilCtrlStructureReader*/ {
-		if ($this->is54()) {
-			return $this->dic->ctrlStructureReader();
-		} else {
-			return $this->dic["ilCtrlStructureReader"];
-		}
+		return $this->dic["ilCtrlStructureReader"];
 	}
 
 
@@ -154,11 +134,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function error()/*: ilErrorHandling*/ {
-		if ($this->is54()) {
-			return $this->dic->error();
-		} else {
-			return $this->dic["ilErr"];
-		}
+		return $this->dic["ilErr"];
 	}
 
 
@@ -190,11 +166,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function history()/*: ilNavigationHistory*/ {
-		if ($this->is54()) {
-			return $this->dic->history();
-		} else {
-			return $this->dic["ilNavigationHistory"];
-		}
+		return $this->dic["ilNavigationHistory"];
 	}
 
 
@@ -214,11 +186,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function ilias()/*: ILIAS*/ {
-		if ($this->is54()) {
-			return $this->dic->ilias();
-		} else {
-			return $this->dic["ilias"];
-		}
+		return $this->dic["ilias"];
 	}
 
 
@@ -246,11 +214,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function locator()/*: ilLocatorGUI*/ {
-		if ($this->is54()) {
-			return $this->dic->locator();
-		} else {
-			return $this->dic["ilLocator"];
-		}
+		return $this->dic["ilLocator"];
 	}
 
 
@@ -258,11 +222,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function log()/*: ilLog*/ {
-		if ($this->is54()) {
-			return $this->dic->logger()->log();
-		} else {
-			return $this->dic["ilLog"];
-		}
+		return $this->dic["ilLog"];
 	}
 
 
@@ -278,11 +238,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function loggerFactory()/*: ilLoggerFactory*/ {
-		if ($this->is54()) {
-			return $this->dic->logger()->loggerFactory();
-		} else {
-			return $this->dic["ilLoggerFactory"];
-		}
+		return $this->dic["ilLoggerFactory"];
 	}
 
 
@@ -290,14 +246,10 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function mailMimeSenderFactory()/*: ilMailMimeSenderFactory*/ {
-		if ($this->is54()) {
-			return $this->dic->mailMimeSenderFactory();
+		if ($this->is53()) {
+			return $this->dic["mail.mime.sender.factory"];
 		} else {
-			if ($this->is53()) {
-				return $this->dic["mail.mime.sender.factory"];
-			} else {
-				throw new DICException("ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!");
-			}
+			throw new DICException("ilMailMimeSenderFactory not exists in ILIAS 5.2 or below!");
 		}
 	}
 
@@ -306,14 +258,10 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function mailMimeTransportFactory()/*: ilMailMimeTransportFactory*/ {
-		if ($this->is54()) {
-			return $this->dic->mailMimeTransportFactory();
+		if ($this->is53()) {
+			return $this->dic["mail.mime.transport.factory"];
 		} else {
-			if ($this->is53()) {
-				return $this->dic["mail.mime.transport.factory"];
-			} else {
-				throw new DICException("ilMailMimeTransportFactory not exists in ILIAS 5.2 or below!");
-			}
+			throw new DICException("ilMailMimeTransportFactory not exists in ILIAS 5.2 or below!");
 		}
 	}
 
@@ -322,11 +270,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function mainMenu()/*: ilMainMenuGUI*/ {
-		if ($this->is54()) {
-			return $this->dic->mainMenu();
-		} else {
-			return $this->dic["ilMainMenu"];
-		}
+		return $this->dic["ilMainMenu"];
 	}
 
 
@@ -334,11 +278,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function objDataCache()/*: ilObjectDataCache*/ {
-		if ($this->is54()) {
-			return $this->dic->objDataCache();
-		} else {
-			return $this->dic["ilObjDataCache"];
-		}
+		return $this->dic["ilObjDataCache"];
 	}
 
 
@@ -346,11 +286,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function objDefinition()/*: ilObjectDefinition*/ {
-		if ($this->is54()) {
-			return $this->dic->objDefinition();
-		} else {
-			return $this->dic["objDefinition"];
-		}
+		return $this->dic["objDefinition"];
 	}
 
 
@@ -358,11 +294,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function pluginAdmin()/*: ilPluginAdmin*/ {
-		if ($this->is54()) {
-			return $this->dic->pluginAdmin();
-		} else {
-			return $this->dic["ilPluginAdmin"];
-		}
+		return $this->dic["ilPluginAdmin"];
 	}
 
 
@@ -394,11 +326,7 @@ final class NewDIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function session()/*: Session*/ {
-		if ($this->is54()) {
-			return $this->dic->session();
-		} else {
-			return $this->dic["sess"];
-		}
+		return $this->dic["sess"];
 	}
 
 
