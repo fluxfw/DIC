@@ -1,7 +1,10 @@
 # Changelog
 
-## [0.8.x]
+## [0.9.0]
+- VersionInterface
 - `mailMimeTransportFactory`
+- Improve translate, so it correct handle missing language strings and autoload language modules
+- Rename`template` to `mainTemplate` in DICInterface
 
 ## [0.8.11]
 - Add `@since`

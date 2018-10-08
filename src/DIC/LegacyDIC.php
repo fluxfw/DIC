@@ -245,6 +245,14 @@ final class LegacyDIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
+	public function mainTemplate()/*: ilTemplate*/ {
+		return $this->globals["tpl"];
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
 	public function objDataCache()/*: ilObjectDataCache*/ {
 		return $this->globals["ilObjDataCache"];
 	}
@@ -319,14 +327,6 @@ final class LegacyDIC extends AbstractDIC {
 	 */
 	public function tabs()/*: ilTabsGUI*/ {
 		return $this->globals["ilTabs"];
-	}
-
-
-	/**
-	 * @inheritdoc
-	 */
-	public function template()/*: ilTemplate*/ {
-		return $this->globals["tpl"];
 	}
 
 

@@ -261,6 +261,13 @@ interface DICInterface {
 
 
 	/**
+	 * @return ilTemplate Main ilTemplate instance
+	 */
+	public function mainTemplate()/*: ilTemplate*/
+	;
+
+
+	/**
 	 * @return ilObjectDataCache
 	 */
 	public function objDataCache()/*: ilObjectDataCache*/
@@ -327,13 +334,6 @@ interface DICInterface {
 	 * @return ilTabsGUI
 	 */
 	public function tabs()/*: ilTabsGUI*/
-	;
-
-
-	/**
-	 * @return ilTemplate Main-Template
-	 */
-	public function template()/*: ilTemplate*/
 	;
 
 
