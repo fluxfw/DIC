@@ -12,15 +12,15 @@ namespace srag\DIC\Plugin;
 interface Pluginable {
 
 	/**
-	 * @return Plugin
+	 * @return PluginInterface
 	 */
-	public function getPlugin()/*: Plugin*/
+	public function getPlugin()/*: PluginInterface*/
 	;
 
 
 	/**
-	 * @param Plugin $plugin
+	 * @param PluginInterface $plugin
 	 */
-	public function setPlugin(Plugin $plugin)/*: void*/
+	public function setPlugin(PluginInterface $plugin)/*: void*/
 	;
 }
