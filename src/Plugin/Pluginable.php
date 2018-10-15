@@ -12,6 +12,15 @@ namespace srag\DIC\Plugin;
 interface Pluginable {
 
 	/**
+	 * @param PluginInterface $plugin
+	 *
+	 * @return mixed
+	 */
+	public static function getInstance(PluginInterface $plugin)
+	;
+
+
+	/**
 	 * @return PluginInterface
 	 */
 	public function getPlugin()/*: PluginInterface*/
