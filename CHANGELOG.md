@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.10.3]
+- Fix Pluginable interface
+
 ## [0.10.2]
 - Fix Pluginable interface
 
