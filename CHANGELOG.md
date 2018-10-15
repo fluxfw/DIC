@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.10.0]
+- Pluginable interface
+
 ## [0.9.2]
 - Fix readme
 
