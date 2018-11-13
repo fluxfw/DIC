@@ -4,12 +4,12 @@ namespace srag\DIC;
 
 use ilLogLevel;
 use ilPlugin;
-use League\Flysystem\PluginInterface;
 use srag\DIC\DIC\DICInterface;
 use srag\DIC\DIC\LegacyDIC;
 use srag\DIC\DIC\NewDIC;
 use srag\DIC\Exception\DICException;
 use srag\DIC\Plugin\Plugin;
+use srag\DIC\Plugin\PluginInterface;
 use srag\DIC\Version\Version;
 use srag\DIC\Version\VersionInterface;
 
