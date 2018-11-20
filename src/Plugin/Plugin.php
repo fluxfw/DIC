@@ -39,7 +39,7 @@ final class Plugin implements PluginInterface {
 	 *
 	 * @param ilPlugin $plugin_object
 	 *
-	 * @access namespace
+	 * @internal
 	 */
 	public function __construct(ilPlugin $plugin_object) {
 		$this->plugin_object = $plugin_object;
