@@ -89,7 +89,7 @@ For output html or gui use:
 self::output()->output($value, $main = true)/*: void*/;
 ```
 
-For output json:
+For output JSON:
 ```php
 /**
  * Output JSON
