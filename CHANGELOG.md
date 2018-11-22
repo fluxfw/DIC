@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.11.0]
+- New OutputInterface
+
 ## [0.10.3]
 - Fix Pluginable interface
 
