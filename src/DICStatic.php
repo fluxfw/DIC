@@ -4,12 +4,14 @@ namespace srag\DIC;
 
 use ilLogLevel;
 use ilPlugin;
-use League\Flysystem\PluginInterface;
 use srag\DIC\DIC\DICInterface;
 use srag\DIC\DIC\LegacyDIC;
 use srag\DIC\DIC\NewDIC;
 use srag\DIC\Exception\DICException;
+use srag\DIC\Output\Output;
+use srag\DIC\Output\OutputInterface;
 use srag\DIC\Plugin\Plugin;
+use srag\DIC\Plugin\PluginInterface;
 use srag\DIC\Version\Version;
 use srag\DIC\Version\VersionInterface;
 
@@ -26,6 +28,10 @@ final class DICStatic implements DICStaticInterface {
 	 * @var DICInterface|null
 	 */
 	private static $dic = NULL;
+	/**
+	 * @var OutputInterface|null
+	 */
+	private static $output = NULL;
 	/**
 	 * @var PluginInterface[]
 	 */
@@ -51,6 +57,18 @@ final class DICStatic implements DICStaticInterface {
 		}
 
 		return self::$dic;
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public static function output()/*: OutputInterface*/ {
+		if (self::$output === NULL) {
+			self::$output = new Output();
+		}
+
+		return self::$output;
 	}
 
 

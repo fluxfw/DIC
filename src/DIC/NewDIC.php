@@ -26,7 +26,7 @@ final class NewDIC extends AbstractDIC {
 	 *
 	 * @param Container $dic
 	 *
-	 * @access namespace
+	 * @internal
 	 */
 	public function __construct(Container $dic) {
 		parent::__construct();
