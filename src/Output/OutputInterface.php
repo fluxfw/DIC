@@ -22,9 +22,23 @@ use stdClass;
 interface OutputInterface {
 
 	/**
+	 * Get HTML of GUI
+	 *
+	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $value html or GUI instance
+	 *
+	 * @return string HTML
+	 *
+	 * @throws DICException Class {get_class($value)} is not supported for output!
+	 * @throws ilTemplateException
+	 */
+	public function getHTML($value)/*: string*/
+	;
+
+
+	/**
 	 * Output HTML or GUI
 	 *
-	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $value html or gui instance
+	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $value html or GUI instance
 	 * @param bool                                                                        $main  Display main skin?
 	 *
 	 * @throws DICException Class {get_class($value)} is not supported for output!
@@ -38,7 +52,7 @@ interface OutputInterface {
 	/**
 	 * Output JSON
 	 *
-	 * @param string|int|double|bool|array|stdClass|null|JsonSerializable $value html, gui instance or json value
+	 * @param string|int|double|bool|array|stdClass|null|JsonSerializable $value JSON value
 	 *
 	 * @throws DICException {get_class($value)} is not a valid JSON value!
 	 */
