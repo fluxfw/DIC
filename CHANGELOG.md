@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.13.0]
+- getHTML in OutputInterface
+
 ## [0.12.0]
 - Supports output Component
 - Supports new ILIAS 5.4 DIC services

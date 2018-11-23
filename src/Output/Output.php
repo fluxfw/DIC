@@ -27,8 +27,7 @@ final class Output implements OutputInterface {
 	/**
 	 * @inheritdoc
 	 */
-	public function output($value, /*bool*/
-		$main = true)/*: void*/ {
+	public function getHTML($value)/*: string*/ {
 		switch (true) {
 			// HTML
 			case (is_string($value)):
@@ -44,7 +43,6 @@ final class Output implements OutputInterface {
 			case ($value instanceof ilTable2GUI):
 				$html = $value->getHTML();
 				break;
-
 			case ($value instanceof Component):
 				$html = self::dic()->ui()->renderer()->render($value);
 				break;
@@ -54,6 +52,17 @@ final class Output implements OutputInterface {
 				throw new DICException("Class " . get_class($value) . " is not supported for output!");
 				break;
 		}
+
+		return $html;
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function output($value, /*bool*/
+		$main = true)/*: void*/ {
+		$html = $this->getHTML($value);
 
 		if (self::dic()->ctrl()->isAsynch()) {
 			echo $html;
