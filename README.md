@@ -81,8 +81,8 @@ For output HTML or GUI use:
 /**
  * Output HTML or GUI
  * 
- * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $html HTML code or some GUI instance
- * @param bool                                                                        $main Display main skin?
+ * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component|ilModalGUI $html HTML code or some GUI instance
+ * @param bool                                                                                   $main Display main skin?
  *
  * @throws DICException
  */
@@ -106,7 +106,7 @@ For get HTML of GUI:
 /**
  * Get HTML of GUI
  * 
- * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $html HTML code or some GUI instance
+ * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component|ilModalGUI $html HTML code or some GUI instance
  *
  * @return string HTML
  *

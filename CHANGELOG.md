@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.13.1]
+- Supports output ilModalGUI
+
 ## [0.13.0]
 - getHTML in OutputInterface
 
