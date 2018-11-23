@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.13.2]
+- Supports output ilAdvancedSelectionListGUI
+
 ## [0.13.1]
 - Supports output ilModalGUI
 

@@ -2,6 +2,7 @@
 
 namespace srag\DIC\Output;
 
+use ilAdvancedSelectionListGUI;
 use ilConfirmationGUI;
 use ILIAS\UI\Component\Component;
 use ilModalGUI;
@@ -43,6 +44,7 @@ final class Output implements OutputInterface {
 			case ($value instanceof ilPropertyFormGUI):
 			case ($value instanceof ilTable2GUI):
 			case ($value instanceof ilModalGUI):
+			case ($value instanceof ilAdvancedSelectionListGUI):
 				$html = $value->getHTML();
 				break;
 			case ($value instanceof Component):
