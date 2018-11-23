@@ -25,34 +25,41 @@ final class Output implements OutputInterface {
 	 * @inheritdoc
 	 */
 	public function getHTML($value)/*: string*/ {
-		switch (true) {
-			// HTML
-			case (is_string($value)):
-				$html = $value;
-				break;
+		if (is_array($value)) {
+			$html = "";
+			foreach ($value as $gui) {
+				$html .= $this->getHTML($gui);
+			}
+		} else {
+			switch (true) {
+				// HTML
+				case (is_string($value)):
+					$html = $value;
+					break;
 
-			// GUI instance
-			case method_exists($value, "getHTML"):
-				$html = $value->getHTML();
-				break;
-			case method_exists($value, "render"):
-				$html = $value->render();
-				break;
+				// GUI instance
+				case method_exists($value, "getHTML"):
+					$html = $value->getHTML();
+					break;
+				case method_exists($value, "render"):
+					$html = $value->render();
+					break;
 
-			// Template instance
-			case ($value instanceof ilTemplate):
-				$html = $value->get();
-				break;
+				// Template instance
+				case ($value instanceof ilTemplate):
+					$html = $value->get();
+					break;
 
-			// Component instance
-			case ($value instanceof Component):
-				$html = self::dic()->ui()->renderer()->render($value);
-				break;
+				// Component instance
+				case ($value instanceof Component):
+					$html = self::dic()->ui()->renderer()->render($value);
+					break;
 
-			// Not supported!
-			default:
-				throw new DICException("Class " . get_class($value) . " is not supported for output!");
-				break;
+				// Not supported!
+				default:
+					throw new DICException("Class " . get_class($value) . " is not supported for output!");
+					break;
+			}
 		}
 
 		return strval($html);
