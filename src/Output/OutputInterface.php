@@ -3,6 +3,7 @@
 namespace srag\DIC\Output;
 
 use ilConfirmationGUI;
+use ILIAS\UI\Component\Component;
 use ilPropertyFormGUI;
 use ilTable2GUI;
 use ilTemplate;
@@ -23,8 +24,8 @@ interface OutputInterface {
 	/**
 	 * Output HTML or GUI
 	 *
-	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI $value html or gui instance
-	 * @param bool                                                              $main  Display main skin?
+	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $value html or gui instance
+	 * @param bool                                                                        $main  Display main skin?
 	 *
 	 * @throws DICException Class {get_class($value)} is not supported for output!
 	 * @throws ilTemplateException
@@ -39,7 +40,7 @@ interface OutputInterface {
 	 *
 	 * @param string|int|double|bool|array|stdClass|null|JsonSerializable $value html, gui instance or json value
 	 *
-	 * @throws DICException {get_class($value)} is non valid JSON value!
+	 * @throws DICException {get_class($value)} is not a valid JSON value!
 	 */
 	public function outputJSON($value)/*: void*/
 	;

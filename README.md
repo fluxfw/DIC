@@ -81,15 +81,15 @@ For output html or gui use:
 /**
  * Output HTML or GUI
  * 
- * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI $html HTML code or some gui instance
- * @param bool                                                              $main Display main skin?
+ * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $html HTML code or some gui instance
+ * @param bool                                                                        $main Display main skin?
  *
  * @throws DICException
  */
 self::output()->output($value, $main = true)/*: void*/;
 ```
 
-For output json:
+For output JSON:
 ```php
 /**
  * Output JSON
