@@ -5,8 +5,10 @@ namespace srag\DIC;
 use ilLogLevel;
 use ilPlugin;
 use srag\DIC\DIC\DICInterface;
-use srag\DIC\DIC\LegacyDIC;
-use srag\DIC\DIC\NewDIC;
+use srag\DIC\DIC\Implementation\ILIAS52DIC;
+use srag\DIC\DIC\Implementation\ILIAS53DIC;
+use srag\DIC\DIC\Implementation\ILIAS54DIC;
+use srag\DIC\DIC\Implementation\LegacyDIC;
 use srag\DIC\Exception\DICException;
 use srag\DIC\Output\Output;
 use srag\DIC\Output\OutputInterface;
@@ -47,12 +49,26 @@ final class DICStatic implements DICStaticInterface {
 	 */
 	public static function dic()/*: DICInterface*/ {
 		if (self::$dic === NULL) {
-			if (self::version()->is52()) {
-				global $DIC;
-				self::$dic = new NewDIC($DIC);
-			} else {
-				global $GLOBALS;
-				self::$dic = new LegacyDIC($GLOBALS);
+			switch (true) {
+				case (self::version()->isLower(VersionInterface::ILIAS_VERSION_5_2)):
+					global $GLOBALS;
+					self::$dic = new LegacyDIC($GLOBALS);
+					break;
+
+				case (self::version()->isLower(VersionInterface::ILIAS_VERSION_5_3)):
+					global $DIC;
+					self::$dic = new ILIAS52DIC($DIC);
+					break;
+
+				case (self::version()->isLower(VersionInterface::ILIAS_VERSION_5_4)):
+					global $DIC;
+					self::$dic = new ILIAS53DIC($DIC);
+					break;
+
+				default:
+					global $DIC;
+					self::$dic = new ILIAS54DIC($DIC);
+					break;
 			}
 		}
 

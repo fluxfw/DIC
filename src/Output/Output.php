@@ -3,6 +3,7 @@
 namespace srag\DIC\Output;
 
 use ilConfirmationGUI;
+use ILIAS\UI\Component\Component;
 use ilPropertyFormGUI;
 use ilTable2GUI;
 use ilTemplate;
@@ -42,6 +43,10 @@ final class Output implements OutputInterface {
 			case ($value instanceof ilPropertyFormGUI):
 			case ($value instanceof ilTable2GUI):
 				$html = $value->getHTML();
+				break;
+
+			case ($value instanceof Component):
+				$html = self::dic()->ui()->renderer()->render($value);
 				break;
 
 			// Not supported!
@@ -86,7 +91,7 @@ final class Output implements OutputInterface {
 				break;
 
 			default:
-				throw new DICException(get_class($value) . " is non valid JSON value!");
+				throw new DICException(get_class($value) . " is not a valid JSON value!");
 				break;
 		}
 

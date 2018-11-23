@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.12.0]
+- Supports output Component
+- Supports new ILIAS 5.4 DIC services
+- Separate DIC implementation for ILIAS versions
+- New methods an constants in VersionInterface
+
 ## [0.11.0]
 - New OutputInterface
 
