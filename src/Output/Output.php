@@ -2,12 +2,7 @@
 
 namespace srag\DIC\Output;
 
-use ilAdvancedSelectionListGUI;
-use ilConfirmationGUI;
 use ILIAS\UI\Component\Component;
-use ilModalGUI;
-use ilPropertyFormGUI;
-use ilTable2GUI;
 use ilTemplate;
 use JsonSerializable;
 use srag\DIC\DICTrait;
@@ -33,20 +28,23 @@ final class Output implements OutputInterface {
 		switch (true) {
 			// HTML
 			case (is_string($value)):
-				$html = strval($value);
+				$html = $value;
 				break;
 
 			// GUI instance
+			case method_exists($value, "getHTML"):
+				$html = $value->getHTML();
+				break;
+			case method_exists($value, "render"):
+				$html = $value->render();
+				break;
+
+			// Template instance
 			case ($value instanceof ilTemplate):
 				$html = $value->get();
 				break;
-			case ($value instanceof ilConfirmationGUI):
-			case ($value instanceof ilPropertyFormGUI):
-			case ($value instanceof ilTable2GUI):
-			case ($value instanceof ilModalGUI):
-			case ($value instanceof ilAdvancedSelectionListGUI):
-				$html = $value->getHTML();
-				break;
+
+			// Component instance
 			case ($value instanceof Component):
 				$html = self::dic()->ui()->renderer()->render($value);
 				break;
@@ -57,7 +55,7 @@ final class Output implements OutputInterface {
 				break;
 		}
 
-		return $html;
+		return strval($html);
 	}
 
 
