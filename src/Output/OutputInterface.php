@@ -4,6 +4,7 @@ namespace srag\DIC\Output;
 
 use ilConfirmationGUI;
 use ILIAS\UI\Component\Component;
+use ilModalGUI;
 use ilPropertyFormGUI;
 use ilTable2GUI;
 use ilTemplate;
@@ -24,7 +25,7 @@ interface OutputInterface {
 	/**
 	 * Get HTML of GUI
 	 *
-	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $value html or GUI instance
+	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component|ilModalGUI $value html or GUI instance
 	 *
 	 * @return string HTML
 	 *
@@ -38,8 +39,8 @@ interface OutputInterface {
 	/**
 	 * Output HTML or GUI
 	 *
-	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component $value html or GUI instance
-	 * @param bool                                                                        $main  Display main skin?
+	 * @param string|ilTemplate|ilConfirmationGUI|ilPropertyFormGUI|ilTable2GUI|Component|ilModalGUI $value html or GUI instance
+	 * @param bool                                                                                   $main  Display main skin?
 	 *
 	 * @throws DICException Class {get_class($value)} is not supported for output!
 	 * @throws ilTemplateException

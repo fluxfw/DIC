@@ -4,6 +4,7 @@ namespace srag\DIC\Output;
 
 use ilConfirmationGUI;
 use ILIAS\UI\Component\Component;
+use ilModalGUI;
 use ilPropertyFormGUI;
 use ilTable2GUI;
 use ilTemplate;
@@ -41,6 +42,7 @@ final class Output implements OutputInterface {
 			case ($value instanceof ilConfirmationGUI):
 			case ($value instanceof ilPropertyFormGUI):
 			case ($value instanceof ilTable2GUI):
+			case ($value instanceof ilModalGUI):
 				$html = $value->getHTML();
 				break;
 			case ($value instanceof Component):
