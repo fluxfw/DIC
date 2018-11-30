@@ -108,7 +108,7 @@ final class PHPVersionChecker {
 
 
 	/**
-	 * https://edmondscommerce.github.io/php/php-realpath-for-none-existant-paths.html (Without realpath)
+	 * https://edmondscommerce.github.io/php/php-realpath-for-none-existant-paths.html (Normalize path without using realpath)
 	 *
 	 * @param string $path
 	 *
