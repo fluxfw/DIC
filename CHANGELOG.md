@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.14.3]
+- Fix ILIAS 5.2
+
 ## [0.14.2]
 - PHPVersionChecker fix cache
 
