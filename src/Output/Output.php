@@ -82,8 +82,6 @@ final class Output implements OutputInterface {
 			self::dic()->mainTemplate()->setContent($html);
 			self::dic()->mainTemplate()->show();
 		}
-
-		exit;
 	}
 
 
