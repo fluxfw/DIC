@@ -57,7 +57,7 @@ final class Output implements OutputInterface {
 
 				// Not supported!
 				default:
-					throw new DICException("Class " . get_class($value) . " is not supported for output!");
+					throw new DICException("Class " . get_class($value) . " is not supported for output!", DICException::CODE_OUTPUT_INVALID_VALUE);
 					break;
 			}
 		}
@@ -111,7 +111,7 @@ final class Output implements OutputInterface {
 				break;
 
 			default:
-				throw new DICException(get_class($value) . " is not a valid JSON value!");
+				throw new DICException(get_class($value) . " is not a valid JSON value!", DICException::CODE_OUTPUT_INVALID_VALUE);
 				break;
 		}
 
