@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.14.4]
+- Output $exit_after
+- DICException::CODE_X
+
 ## [0.14.3]
 - Fix ILIAS 5.2
 
