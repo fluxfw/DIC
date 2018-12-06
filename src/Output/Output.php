@@ -70,7 +70,7 @@ final class Output implements OutputInterface {
 	 * @inheritdoc
 	 */
 	public function output($value, /*bool*/
-		$main = true)/*: void*/ {
+		$main = true, $exit_after = false)/*: void*/ {
 		$html = $this->getHTML($value);
 
 		if (self::dic()->ctrl()->isAsynch()) {
@@ -82,13 +82,17 @@ final class Output implements OutputInterface {
 			self::dic()->mainTemplate()->setContent($html);
 			self::dic()->mainTemplate()->show();
 		}
+
+		if ($exit_after) {
+			exit;
+		}
 	}
 
 
 	/**
 	 * @inheritdoc
 	 */
-	public function outputJSON($value)/*: void*/ {
+	public function outputJSON($value, $exit_after = true)/*: void*/ {
 		switch (true) {
 			case (is_string($value)):
 			case (is_int($value)):
@@ -111,6 +115,8 @@ final class Output implements OutputInterface {
 				break;
 		}
 
-		exit;
+		if ($exit_after) {
+			exit;
+		}
 	}
 }
