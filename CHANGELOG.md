@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.14.5]
+- Output $exit_after=true default
+
 ## [0.14.4]
 - Output $exit_after
 - DICException::CODE_X
