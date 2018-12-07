@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.14.8]
+- Remove @deprecated from getPluginObject
+
 ## [0.14.7]
 - Output ...
 
