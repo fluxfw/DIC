@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.14.12]
+- Add AsqFactory for ILIAS 6.0
+
 ## [0.14.11]
 - Fixes
 
