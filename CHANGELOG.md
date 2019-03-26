@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.15.1]
+- LibraryLanguageInstaller
+
 ## [0.15.0]
 - LibraryLanguageInstaller
 - Changed `setPlugin` to `withPlugin` in `Pluginable`
