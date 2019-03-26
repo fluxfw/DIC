@@ -15,7 +15,7 @@ use srag\DIC\Plugin\PluginInterface;
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class LibraryLanguageInstaller implements Pluginable {
+final class LibraryLanguageInstaller implements Pluginable {
 
 	use DICTrait;
 

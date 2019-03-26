@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.15.2]
+- LibraryLanguageInstaller
+
 ## [0.15.1]
 - LibraryLanguageInstaller
 
