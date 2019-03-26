@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.15.0]
+- LibraryLanguageInstaller
+
 ## [0.14.13]
 - Add GlobalScreen for ILIAS 5.4
 
