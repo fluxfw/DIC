@@ -123,7 +123,7 @@ final class LibraryLanguageInstaller implements Pluginable {
 						$identifier = $prefix . "_" . trim($a[0]);
 						$value = trim($a[1]);
 
-						if (!isset($lang_array[$identifier])) {
+						if (!isset($lang_array[$identifier])) { // Allow plugins to modify library languages if needed
 							if (isset($local_changes[$identifier])) {
 								$lang_array[$identifier] = $local_changes[$identifier];
 							} else {

@@ -1,7 +1,7 @@
 # Changelog
 
 ## [0.15.3]
-- LibraryLanguageInstaller
+- Allow plugins to modify library languages if needed
 
 ## [0.15.2]
 - LibraryLanguageInstaller
