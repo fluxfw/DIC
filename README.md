@@ -191,7 +191,7 @@ Expand you plugin class for installing languages of a library to your plugin
 		parent::updateLanguages($a_lang_keys);
 
 		LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__ . "/../vendor/srag/x/lang")
-			->updateLanguages();
+			->updateLanguages($a_lang_keys);
 	}
 ...
 ```
