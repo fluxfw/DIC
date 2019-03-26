@@ -18,6 +18,16 @@ use srag\DIC\Plugin\PluginInterface;
 class LibraryLanguageInstaller implements Pluginable {
 
 	use DICTrait;
+
+
+	/**
+	 * @return self
+	 */
+	public static function getInstance()/*: self*/ {
+		return new self();
+	}
+
+
 	/**
 	 * @var PluginInterface|null
 	 */
@@ -31,7 +41,7 @@ class LibraryLanguageInstaller implements Pluginable {
 	/**
 	 * LibraryLanguageInstaller constructor
 	 */
-	public function __construct() {
+	private function __construct() {
 
 	}
 
