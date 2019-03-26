@@ -2,6 +2,7 @@
 
 ## [0.15.0]
 - LibraryLanguageInstaller
+- Changed `setPlugin` to `withPlugin` in `Pluginable`
 
 ## [0.14.13]
 - Add GlobalScreen for ILIAS 5.4
