@@ -1,5 +1,8 @@
 # Changelog
 
+## [x]
+- Fix LoggingServices exists in ILIAS 5.2
+
 ## [0.15.4]
 - Fix
 
