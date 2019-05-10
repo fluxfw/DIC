@@ -200,18 +200,9 @@ Expand you plugin class for installing languages of a library to your plugin
 You can now remove all usages of ILIAS globals in your class and replace it with this library.
 Please avoid to store in variables or class variables.
 
-#### Other tips
-- Use `__DIR__`
-- Use not `__FILE__`
-- Use not `dirname(dirname(..))`, use `../../`
-- Use also `__DIR__` for `Customizing/..` and use relative paths from your class perspective (Except in `dbupdate.php`)
-- Try to avoid use `$pl`
-
-### Dependencies
+### Requirements
+* ILIAS 5.3 or ILIAS 5.4
 * PHP >=5.6
-* [composer](https://getcomposer.org)
-
-Please use it for further development!
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests
