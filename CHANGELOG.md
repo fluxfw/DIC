@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.16.1]
+- Fix `self::dic()->log()` is an instance of `ilComponentLogger`
+
 ## [0.16.0]
 - PHP7 syntax
 - Min. ILIAS 5.3
