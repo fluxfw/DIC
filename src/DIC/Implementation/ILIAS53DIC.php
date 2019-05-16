@@ -8,6 +8,7 @@ use ilAppEventHandler;
 use ilAuthSession;
 use ilBenchmark;
 use ilBrowser;
+use ilComponentLogger;
 use ilConditionService;
 use ilCtrl;
 use ilCtrlStructureReader;
@@ -27,7 +28,6 @@ use ilIniFile;
 use ilLanguage;
 use ilLearningHistoryService;
 use ilLocatorGUI;
-use ilLog;
 use ilLoggerFactory;
 use ilMailMimeSenderFactory;
 use ilMailMimeTransportFactory;
@@ -266,7 +266,7 @@ final class ILIAS53DIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
-	public function log(): ilLog {
+	public function log(): ilComponentLogger {
 		return $this->dic["ilLog"];
 	}
 
