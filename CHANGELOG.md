@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.17.1]
+- Supports PostgreSQL
+
 ## [0.17.0]
 - Custom DatabaseDetector
 

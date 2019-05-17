@@ -23,9 +23,16 @@ interface DatabaseInterface extends ilDBPdoInterface {
 
 
 	/**
+	 * @param string $table_name
+	 */
+	public function dropAutoIncrement(string $table_name)/*: void*/ ;
+
+
+	/**
 	 * Reset autoincrement. 1 has the effect MySQL will automatic calculate next max id
 	 *
 	 * @param string $table_name
+	 * @param string $field
 	 */
-	public function resetAutoIncrement(string $table_name)/*: void*/ ;
+	public function resetAutoIncrement(string $table_name, string $field)/*: void*/ ;
 }
