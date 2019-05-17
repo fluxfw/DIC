@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.17.5]
+- DatabaseDetector readme
+
 ## [0.17.4]
 - DatabaseDetector readme
 

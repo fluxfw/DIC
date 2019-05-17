@@ -224,6 +224,7 @@ Please avoid to store in variables or class variables.
 ### Requirements
 * ILIAS 5.3 or ILIAS 5.4
 * PHP >=7.0
+* PDO (MySQL or PostgreSQL)
 
 ### Adjustment suggestions
 * Adjustment suggestions by pull requests
