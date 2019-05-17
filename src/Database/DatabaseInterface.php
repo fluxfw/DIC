@@ -28,7 +28,7 @@ interface DatabaseInterface extends ilDBPdoInterface {
 	 *
 	 * @param string $table_name
 	 */
-	public function dropAutoIncrement(string $table_name)/*: void*/ ;
+	public function dropAutoIncrementTable(string $table_name)/*: void*/ ;
 
 
 	/**

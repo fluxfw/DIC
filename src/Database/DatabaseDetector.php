@@ -69,7 +69,7 @@ class DatabaseDetector extends AbstractILIASDatabaseDetector {
 	/**
 	 * @inheritdoc
 	 */
-	public function dropAutoIncrement(string $table_name)/*: void*/ {
+	public function dropAutoIncrementTable(string $table_name)/*: void*/ {
 		$seq_name = $table_name . "_seq";
 		$seq_name_q = $this->quoteIdentifier($seq_name);
 
