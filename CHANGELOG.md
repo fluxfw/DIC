@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.17.2]
+- Fix
+
 ## [0.17.1]
 - Supports PostgreSQL
 

@@ -98,7 +98,8 @@ class DatabaseDetector extends AbstractILIASDatabaseDetector {
 				break;
 
 			default:
-				$this->manipulate('ALTER TABLE ' . $table_name_q . ' AUTO_INCREMENT=1');
+				$this->manipulate('ALTER TABLE ' . $table_name_q
+					. ' AUTO_INCREMENT=1'); // 1 has the effect MySQL will automatic calculate next max id
 				break;
 		}
 	}
