@@ -57,7 +57,6 @@ class DatabaseDetector extends AbstractILIASDatabaseDetector {
 
 				$this->manipulate('ALTER TABLE ' . $table_name_q . ' ALTER COLUMN ' . $field_q . ' TYPE INT, ALTER COLUMN ' . $field_q
 					. ' SET NOT NULL, ALTER COLUMN ' . $field_q . ' SET DEFAULT nextval(' . $seq_name_q . ')');
-
 				break;
 
 			default:
