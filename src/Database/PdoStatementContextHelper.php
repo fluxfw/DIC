@@ -13,6 +13,8 @@ use srag\DIC\Exception\DICException;
  * @package srag\DIC\Database
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
+ *
+ * @internal
  */
 final class PdoStatementContextHelper extends ilPDOStatement {
 
@@ -22,6 +24,8 @@ final class PdoStatementContextHelper extends ilPDOStatement {
 	 * @return PDOStatement
 	 *
 	 * @throws DICException PdoStatementContextHelper only supports ilPDOStatement!
+	 *
+	 * @internal
 	 */
 	public static function getPdoStatement(ilDBStatement $stm): PDOStatement {
 		if (!($stm instanceof ilPDOStatement)) {
