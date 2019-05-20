@@ -3,6 +3,8 @@
 namespace srag\DIC\Database;
 
 use ilDBPdoInterface;
+use ilDBStatement;
+use stdClass;
 
 /**
  * Interface DatabaseInterface
@@ -29,6 +31,15 @@ interface DatabaseInterface extends ilDBPdoInterface {
 	 * @param string $table_name
 	 */
 	public function dropAutoIncrementTable(string $table_name)/*: void*/ ;
+
+
+	/**
+	 * @param ilDBStatement $stm
+	 * @param string        $class_name
+	 *
+	 * @return object
+	 */
+	public function fetchObjectClass(ilDBStatement $stm, string $class_name = stdClass::class);
 
 
 	/**

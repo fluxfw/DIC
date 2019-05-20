@@ -5,7 +5,9 @@ namespace srag\DIC\Database;
 use ilDBInterface;
 use ilDBPdoInterface;
 use ilDBPdoPostgreSQL;
+use ilDBStatement;
 use srag\DIC\Exception\DICException;
+use stdClass;
 
 /**
  * Class DatabaseDetector
@@ -82,6 +84,14 @@ class DatabaseDetector extends AbstractILIASDatabaseDetector {
 				// Nothing to do in MySQL
 				break;
 		}
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function fetchObjectClass(ilDBStatement $stm, string $class_name = stdClass::class) {
+		PdoStatementContextHelper::getPdoStatement($stm)->fetchObject($class_name);
 	}
 
 
