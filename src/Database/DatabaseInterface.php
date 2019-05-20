@@ -4,7 +4,6 @@ namespace srag\DIC\Database;
 
 use ilDBPdoInterface;
 use ilDBStatement;
-use stdClass;
 
 /**
  * Interface DatabaseInterface
@@ -35,11 +34,38 @@ interface DatabaseInterface extends ilDBPdoInterface {
 
 	/**
 	 * @param ilDBStatement $stm
+	 * @param callable      $callback
+	 *
+	 * @return object[]
+	 */
+	public function fetchAllCallback(ilDBStatement $stm, callable $callback): array;
+
+
+	/**
+	 * @param ilDBStatement $stm
 	 * @param string        $class_name
 	 *
-	 * @return object
+	 * @return object[]
 	 */
-	public function fetchObjectClass(ilDBStatement $stm, string $class_name = stdClass::class);
+	public function fetchAllClass(ilDBStatement $stm, string $class_name): array;
+
+
+	/**
+	 * @param ilDBStatement $stm
+	 * @param callable      $callback
+	 *
+	 * @return object|null
+	 */
+	public function fetchObjectCallback(ilDBStatement $stm, callable $callback)/*:?object*/ ;
+
+
+	/**
+	 * @param ilDBStatement $stm
+	 * @param string        $class_name
+	 *
+	 * @return object|null
+	 */
+	public function fetchObjectClass(ilDBStatement $stm, string $class_name)/*:?object*/ ;
 
 
 	/**
