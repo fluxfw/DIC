@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.17.8]
+- `Database::store`
+
 ## [0.17.7]
 - `Database::fetchObjectCallable`
 

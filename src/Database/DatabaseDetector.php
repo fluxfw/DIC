@@ -2,6 +2,7 @@
 
 namespace srag\DIC\Database;
 
+use ilDBConstants;
 use ilDBInterface;
 use ilDBPdoInterface;
 use ilDBPdoPostgreSQL;
@@ -148,6 +149,24 @@ class DatabaseDetector extends AbstractILIASDatabaseDetector {
 				$this->manipulate('ALTER TABLE ' . $table_name_q
 					. ' AUTO_INCREMENT=1'); // 1 has the effect MySQL will automatic calculate next max id
 				break;
+		}
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function store(string $table_name, array $values, string $primary_key,/*?*/ int $primary_key_value = 0): int {
+		if (empty($primary_key_value)) {
+			$this->insert($table_name, $values);
+
+			return $this->getLastInsertId();
+		} else {
+			$this->update($table_name, $values, [
+				$primary_key => [ ilDBConstants::T_INTEGER, $primary_key_value ]
+			]);
+
+			return $primary_key_value;
 		}
 	}
 }
