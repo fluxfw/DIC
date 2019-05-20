@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.17.6]
+- `Database::fetchObjectClass`
+
 ## [0.17.5]
 - DatabaseDetector readme
 
