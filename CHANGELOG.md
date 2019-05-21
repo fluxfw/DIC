@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.17.9]
+- Fix PostgreSQL recall `createAutoIncrement`
+- Update readme
+
 ## [0.17.8]
 - `Database::store`
 
