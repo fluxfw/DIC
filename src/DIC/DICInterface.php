@@ -47,6 +47,7 @@ use ilTabsGUI;
 use ilTemplate;
 use ilToolbarGUI;
 use ilTree;
+use phpDocumentor\Reflection\Types\Mixed_;
 use Session;
 use srag\DIC\Database\DatabaseInterface;
 use srag\DIC\Exception\DICException;
@@ -267,9 +268,9 @@ interface DICInterface {
 
 
 	/**
-	 * @return ilTemplate Main ilTemplate instance
+	 * @return mixed
 	 */
-	public function mainTemplate(): ilTemplate;
+	public function mainTemplate(); /*TODO*/
 
 
 	/**
