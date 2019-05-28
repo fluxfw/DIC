@@ -14,6 +14,7 @@ use ilCtrl;
 use ilCtrlStructureReader;
 use ilDBInterface;
 use ilErrorHandling;
+use ilGlobalTemplateInterface;
 use ilHelpGUI;
 use ILIAS;
 use ILIAS\DI\BackgroundTaskServices;
@@ -45,15 +46,13 @@ use ilRbacSystem;
 use ilSetting;
 use ilStyleDefinition;
 use ilTabsGUI;
-use ilTemplate;
 use ilToolbarGUI;
 use ilTree;
 use Session;
 use srag\DIC\DIC\AbstractDIC;
-use srag\DIC\Exception\DICException;
 
 /**
- * Class ILIAS53DIC
+ * Class ILIAS60DIC
  *
  * @package srag\DIC\DIC\Implementation
  *
@@ -68,7 +67,7 @@ final class ILIAS60DIC extends AbstractDIC {
 
 
 	/**
-	 * ILIAS53DIC constructor
+	 * ILIAS60DIC constructor
 	 *
 	 * @param Container $dic
 	 */
@@ -131,7 +130,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function clientIni(): ilIniFile {
-		return $this->dic["ilClientIniFile"];
+		return $this->dic->clientIni();
 	}
 
 
@@ -147,7 +146,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function conditions(): ilConditionService {
-		throw new DICException("ilConditionService not exists in ILIAS 5.3 or below!");
+		return $this->dic->conditions();
 	}
 
 
@@ -195,7 +194,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function globalScreen(): GlobalScreenService {
-		throw new DICException("GlobalScreenService not exists in ILIAS 5.3 or below!");
+		return $this->dic->globalScreen();
 	}
 
 
@@ -203,7 +202,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function help(): ilHelpGUI {
-		return $this->dic["ilHelp"];
+		return $this->dic->help();
 	}
 
 
@@ -235,7 +234,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function iliasIni(): ilIniFile {
-		return $this->dic["ilIliasIniFile"];
+		return $this->dic->iliasIni();
 	}
 
 
@@ -251,7 +250,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function learningHistory(): ilLearningHistoryService {
-		throw new DICException("ilLearningHistoryService not exists in ILIAS 5.3 or below!");
+		return $this->dic->learningHistory();
 	}
 
 
@@ -314,7 +313,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
-	public function mainTemplate()/* TODO */ {
+	public function mainTemplate(): ilGlobalTemplateInterface {
 		return $this->dic->ui()->mainTemplate();
 	}
 
@@ -323,7 +322,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function news(): ilNewsService {
-		throw new DICException("ilNewsService not exists in ILIAS 5.3 or below!");
+		return $this->dic->news();
 	}
 
 
@@ -347,7 +346,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function object(): ilObjectService {
-		throw new DICException("ilObjectService not exists in ILIAS 5.3 or below!");
+		return $this->dic->object();
 	}
 
 
@@ -403,7 +402,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	 * @inheritdoc
 	 */
 	public function systemStyle(): ilStyleDefinition {
-		return $this->dic["styleDefinition"];
+		return $this->dic->systemStyle();
 	}
 
 
