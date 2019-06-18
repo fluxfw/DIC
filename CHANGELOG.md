@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.18.2]
+- Supports output `ilTemplateWrapper`
+
 ## [0.18.1]
 - Fix ILIAS 6.0 global template
 
