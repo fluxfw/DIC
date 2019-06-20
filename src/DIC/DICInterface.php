@@ -380,7 +380,7 @@ interface DICInterface {
 	 *
 	 * @throws DICException ilUIService not exists in ILIAS 5.4 or below!
 	 */
-	public function uiIService(): ilUIService;
+	public function uiService(): ilUIService;
 
 
 	/**
