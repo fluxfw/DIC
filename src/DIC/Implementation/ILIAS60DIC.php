@@ -442,7 +442,7 @@ final class ILIAS60DIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
-	public function uiIService(): ilUIService {
+	public function uiService(): ilUIService {
 		return $this->dic->uiService();
 	}
 

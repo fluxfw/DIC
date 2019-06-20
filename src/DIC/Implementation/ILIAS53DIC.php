@@ -443,7 +443,7 @@ final class ILIAS53DIC extends AbstractDIC {
 	/**
 	 * @inheritdoc
 	 */
-	public function uiIService(): ilUIService {
+	public function uiService(): ilUIService {
 		throw new DICException("ilUIService not exists in ILIAS 5.4 or below!");
 	}
 
