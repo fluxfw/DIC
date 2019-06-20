@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.18.3]
+- ILIAS 6.0 `uiServices`
+
 ## [0.18.2]
 - Supports output `ilTemplateWrapper`
 

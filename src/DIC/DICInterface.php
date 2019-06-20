@@ -48,6 +48,7 @@ use ilTabsGUI;
 use ilTemplate;
 use ilToolbarGUI;
 use ilTree;
+use ilUIService;
 use Session;
 use srag\DIC\Database\DatabaseInterface;
 use srag\DIC\Exception\DICException;
@@ -370,6 +371,16 @@ interface DICInterface {
 	 * @since ILIAS 5.2
 	 */
 	public function ui(): UIServices;
+
+
+	/**
+	 * @return ilUIService
+	 *
+	 * @since ILIAS 6.0
+	 *
+	 * @throws DICException ilUIService not exists in ILIAS 5.4 or below!
+	 */
+	public function uiIService(): ilUIService;
 
 
 	/**

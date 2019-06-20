@@ -48,6 +48,7 @@ use ilStyleDefinition;
 use ilTabsGUI;
 use ilToolbarGUI;
 use ilTree;
+use ilUIService;
 use Session;
 use srag\DIC\DIC\AbstractDIC;
 
@@ -435,6 +436,14 @@ final class ILIAS60DIC extends AbstractDIC {
 	 */
 	public function ui(): UIServices {
 		return $this->dic->ui();
+	}
+
+
+	/**
+	 * @inheritdoc
+	 */
+	public function uiIService(): ilUIService {
+		return $this->dic->uiService();
 	}
 
 
