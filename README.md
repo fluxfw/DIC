@@ -187,7 +187,6 @@ Please avoid to store in variables or class variables.
 Expand you plugin class for installing languages of a library to your plugin
 ```php
 ...
-
 	/**
 	 * @inheritdoc
 	 */
