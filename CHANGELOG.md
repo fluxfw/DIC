@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.19.0]
+- Add some new ILIAS 6 methods
+
 ## [0.18.5]
 - Fix ILIAS 6 version
 

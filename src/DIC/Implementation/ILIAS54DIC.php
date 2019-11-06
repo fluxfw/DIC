@@ -5,8 +5,10 @@ namespace srag\DIC\DIC\Implementation;
 use Collator;
 use ilAccessHandler;
 use ilAppEventHandler;
+use ilAsqFactory;
 use ilAuthSession;
 use ilBenchmark;
+use ilBookingManagerService;
 use ilBrowser;
 use ilComponentLogger;
 use ilConditionService;
@@ -14,6 +16,7 @@ use ilCtrl;
 use ilCtrlStructureReader;
 use ilDBInterface;
 use ilErrorHandling;
+use ilExerciseFactory;
 use ilHelpGUI;
 use ILIAS;
 use ILIAS\DI\BackgroundTaskServices;
@@ -24,6 +27,7 @@ use ILIAS\DI\UIServices;
 use ILIAS\Filesystem\Filesystems;
 use ILIAS\FileUpload\FileUpload;
 use ILIAS\GlobalScreen\Services as GlobalScreenService;
+use ILIAS\Refinery\Factory as RefineryFactory;
 use ilIniFile;
 use ilLanguage;
 use ilLearningHistoryService;
@@ -45,6 +49,7 @@ use ilRbacSystem;
 use ilSetting;
 use ilStyleDefinition;
 use ilTabsGUI;
+use ilTaskService;
 use ilTemplate;
 use ilToolbarGUI;
 use ilTree;
@@ -105,6 +110,15 @@ final class ILIAS54DIC extends AbstractDIC
     public function benchmark() : ilBenchmark
     {
         return $this->dic["ilBench"];
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function bookingManager() : ilBookingManagerService
+    {
+        throw new DICException("ilBookingManagerService not exists in ILIAS 5.4 or below!");
     }
 
 
@@ -177,6 +191,15 @@ final class ILIAS54DIC extends AbstractDIC
     public function error() : ilErrorHandling
     {
         return $this->dic["ilErr"];
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function exercise() : ilExerciseFactory
+    {
+        throw new DICException("ilExerciseFactory not exists in ILIAS 5.4 or below!");
     }
 
 
@@ -381,6 +404,15 @@ final class ILIAS54DIC extends AbstractDIC
     /**
      * @inheritdoc
      */
+    public function question() : ilAsqFactory
+    {
+        throw new DICException("ilAsqFactory not exists in ILIAS 5.4 or below!");
+    }
+
+
+    /**
+     * @inheritdoc
+     */
     public function rbacadmin() : ilRbacAdmin
     {
         return $this->dic->rbac()->admin();
@@ -402,6 +434,15 @@ final class ILIAS54DIC extends AbstractDIC
     public function rbacsystem() : ilRbacSystem
     {
         return $this->dic->rbac()->system();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function refinery() : RefineryFactory
+    {
+        throw new DICException("RefineryFactory not exists in ILIAS 5.4 or below!");
     }
 
 
@@ -438,6 +479,15 @@ final class ILIAS54DIC extends AbstractDIC
     public function tabs() : ilTabsGUI
     {
         return $this->dic->tabs();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function task() : ilTaskService
+    {
+        throw new DICException("ilTaskService not exists in ILIAS 5.4 or below!");
     }
 
 

@@ -5,8 +5,10 @@ namespace srag\DIC\DIC;
 use Collator;
 use ilAccessHandler;
 use ilAppEventHandler;
+use ilAsqFactory;
 use ilAuthSession;
 use ilBenchmark;
+use ilBookingManagerService;
 use ilBrowser;
 use ilComponentLogger;
 use ilConditionService;
@@ -14,6 +16,7 @@ use ilCtrl;
 use ilCtrlStructureReader;
 use ilDBInterface;
 use ilErrorHandling;
+use ilExerciseFactory;
 use ilGlobalTemplateInterface;
 use ilHelpGUI;
 use ILIAS;
@@ -25,6 +28,7 @@ use ILIAS\DI\UIServices;
 use ILIAS\Filesystem\Filesystems;
 use ILIAS\FileUpload\FileUpload;
 use ILIAS\GlobalScreen\Services as GlobalScreenService;
+use ILIAS\Refinery\Factory as RefineryFactory;
 use ilIniFile;
 use ilLanguage;
 use ilLearningHistoryService;
@@ -46,6 +50,7 @@ use ilRbacSystem;
 use ilSetting;
 use ilStyleDefinition;
 use ilTabsGUI;
+use ilTaskService;
 use ilTemplate;
 use ilToolbarGUI;
 use ilTree;
@@ -102,6 +107,16 @@ interface DICInterface
      * @return ilBenchmark
      */
     public function benchmark() : ilBenchmark;
+
+
+    /**
+     * @return ilBookingManagerService
+     *
+     * @throws DICException ilBookingManagerService not exists in ILIAS 5.4 or below!
+     *
+     * @since ILIAS 6.0
+     */
+    public function bookingManager() : ilBookingManagerService;
 
 
     /**
@@ -162,6 +177,16 @@ interface DICInterface
      * @return ilErrorHandling
      */
     public function error() : ilErrorHandling;
+
+
+    /**
+     * @return ilExerciseFactory
+     *
+     * @throws DICException ilExerciseFactory not exists in ILIAS 5.4 or below!
+     *
+     * @since ILIAS 6.0
+     */
+    public function exercise() : ilExerciseFactory;
 
 
     /**
@@ -316,6 +341,16 @@ interface DICInterface
 
 
     /**
+     * @return ilAsqFactory
+     *
+     * @throws DICException ilAsqFactory not exists in ILIAS 5.4 or below!
+     *
+     * @since ILIAS 6.0
+     */
+    public function question() : ilAsqFactory;
+
+
+    /**
      * @return ilPluginAdmin
      */
     public function pluginAdmin() : ilPluginAdmin;
@@ -340,6 +375,16 @@ interface DICInterface
 
 
     /**
+     * @return RefineryFactory
+     *
+     * @throws DICException ilConditionService not exists in ILIAS 5.4 or below!
+     *
+     * @since ILIAS 6.0
+     */
+    public function refinery() : RefineryFactory;
+
+
+    /**
      * @return Session
      */
     public function session() : Session;
@@ -361,6 +406,16 @@ interface DICInterface
      * @return ilTabsGUI
      */
     public function tabs() : ilTabsGUI;
+
+
+    /**
+     * @return ilTaskService
+     *
+     * @throws DICException ilTaskService not exists in ILIAS 5.4 or below!
+     *
+     * @since ILIAS 6.0
+     */
+    public function task() : ilTaskService;
 
 
     /**

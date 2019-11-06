@@ -5,8 +5,10 @@ namespace srag\DIC\DIC\Implementation;
 use Collator;
 use ilAccessHandler;
 use ilAppEventHandler;
+use ilAsqFactory;
 use ilAuthSession;
 use ilBenchmark;
+use ilBookingManagerService;
 use ilBrowser;
 use ilComponentLogger;
 use ilConditionService;
@@ -14,6 +16,7 @@ use ilCtrl;
 use ilCtrlStructureReader;
 use ilDBInterface;
 use ilErrorHandling;
+use ilExerciseFactory;
 use ilGlobalTemplateInterface;
 use ilHelpGUI;
 use ILIAS;
@@ -25,6 +28,7 @@ use ILIAS\DI\UIServices;
 use ILIAS\Filesystem\Filesystems;
 use ILIAS\FileUpload\FileUpload;
 use ILIAS\GlobalScreen\Services as GlobalScreenService;
+use ILIAS\Refinery\Factory as RefineryFactory;
 use ilIniFile;
 use ilLanguage;
 use ilLearningHistoryService;
@@ -46,6 +50,7 @@ use ilRbacSystem;
 use ilSetting;
 use ilStyleDefinition;
 use ilTabsGUI;
+use ilTaskService;
 use ilToolbarGUI;
 use ilTree;
 use ilUIService;
@@ -104,6 +109,15 @@ final class ILIAS60DIC extends AbstractDIC
     public function benchmark() : ilBenchmark
     {
         return $this->dic["ilBench"];
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function bookingManager() : ilBookingManagerService
+    {
+        return $this->dic->bookingManager();
     }
 
 
@@ -176,6 +190,15 @@ final class ILIAS60DIC extends AbstractDIC
     public function error() : ilErrorHandling
     {
         return $this->dic["ilErr"];
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function exercise() : ilExerciseFactory
+    {
+        return $this->dic->exercise();
     }
 
 
@@ -380,6 +403,15 @@ final class ILIAS60DIC extends AbstractDIC
     /**
      * @inheritdoc
      */
+    public function question() : ilAsqFactory
+    {
+        return $this->dic->question();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
     public function rbacadmin() : ilRbacAdmin
     {
         return $this->dic->rbac()->admin();
@@ -401,6 +433,15 @@ final class ILIAS60DIC extends AbstractDIC
     public function rbacsystem() : ilRbacSystem
     {
         return $this->dic->rbac()->system();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function refinery() : RefineryFactory
+    {
+        return $this->dic->refinery();
     }
 
 
@@ -437,6 +478,15 @@ final class ILIAS60DIC extends AbstractDIC
     public function tabs() : ilTabsGUI
     {
         return $this->dic->tabs();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function task() : ilTaskService
+    {
+        return $this->dic->task();
     }
 
 
