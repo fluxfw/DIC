@@ -377,7 +377,7 @@ interface DICInterface
     /**
      * @return RefineryFactory
      *
-     * @throws DICException ilConditionService not exists in ILIAS 5.4 or below!
+     * @throws DICException RefineryFactory not exists in ILIAS 5.4 or below!
      *
      * @since ILIAS 6.0
      */
