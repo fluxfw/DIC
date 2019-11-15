@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.19.2]
+- `setLocator` on output
+
 ## [0.19.1]
 - Fix
 
