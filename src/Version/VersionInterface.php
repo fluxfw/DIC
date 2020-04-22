@@ -12,7 +12,6 @@ namespace srag\DIC\Version;
 interface VersionInterface
 {
 
-    const ILIAS_VERSION_5_3 = "5.3.0";
     const ILIAS_VERSION_5_4 = "5.4.0";
     const ILIAS_VERSION_6_0 = "6.0";
 
@@ -51,12 +50,6 @@ interface VersionInterface
      * @return bool
      */
     public function isMinVersion(string $version) : bool;
-
-
-    /**
-     * @return bool
-     */
-    public function is53() : bool;
 
 
     /**

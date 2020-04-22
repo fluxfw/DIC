@@ -98,8 +98,6 @@ interface DICInterface
 
     /**
      * @return BackgroundTaskServices
-     *
-     * @since ILIAS 5.3
      */
     public function backgroundTasks() : BackgroundTaskServices;
 
@@ -140,10 +138,6 @@ interface DICInterface
 
     /**
      * @return ilConditionService
-     *
-     * @throws DICException ilConditionService not exists in ILIAS 5.3 or below!
-     *
-     * @since ILIAS 5.4
      */
     public function conditions() : ilConditionService;
 
@@ -192,18 +186,12 @@ interface DICInterface
 
     /**
      * @return Filesystems
-     *
-     * @since ILIAS 5.3
      */
     public function filesystem() : Filesystems;
 
 
     /**
      * @return GlobalScreenService
-     *
-     * @throws DICException GlobalScreenService not exists in ILIAS 5.3 or below!
-     *
-     * @since ILIAS 5.4
      */
     public function globalScreen() : GlobalScreenService;
 
@@ -222,8 +210,6 @@ interface DICInterface
 
     /**
      * @return HTTPServices
-     *
-     * @since ILIAS 5.3
      */
     public function http() : HTTPServices;
 
@@ -248,10 +234,6 @@ interface DICInterface
 
     /**
      * @return ilLearningHistoryService
-     *
-     * @throws DICException ilLearningHistoryService not exists in ILIAS 5.3 or below!
-     *
-     * @since ILIAS 5.4
      */
     public function learningHistory() : ilLearningHistoryService;
 
@@ -284,16 +266,12 @@ interface DICInterface
 
     /**
      * @return ilMailMimeSenderFactory
-     *
-     * @since ILIAS 5.3
      */
     public function mailMimeSenderFactory() : ilMailMimeSenderFactory;
 
 
     /**
      * @return ilMailMimeTransportFactory
-     *
-     * @since ILIAS 5.3
      */
     public function mailMimeTransportFactory() : ilMailMimeTransportFactory;
 
@@ -313,10 +291,6 @@ interface DICInterface
 
     /**
      * @return ilNewsService
-     *
-     * @throws DICException ilNewsService not exists in ILIAS 5.3 or below!
-     *
-     * @since ILIAS 5.4
      */
     public function news() : ilNewsService;
 
@@ -335,10 +309,6 @@ interface DICInterface
 
     /**
      * @return ilObjectService
-     *
-     * @throws DICException ilObjectService not exists in ILIAS 5.3 or below!
-     *
-     * @since ILIAS 5.4
      */
     public function object() : ilObjectService;
 
@@ -465,8 +435,6 @@ interface DICInterface
 
     /**
      * @return FileUpload
-     *
-     * @since ILIAS 5.3
      */
     public function upload() : FileUpload;
 
