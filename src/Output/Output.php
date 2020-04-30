@@ -110,7 +110,7 @@ final class Output implements OutputInterface
             if (!empty($html)) {
                 self::dic()->ui()->mainTemplate()->setContent($html);
             }
-            
+
             if ($show) {
                 if (self::version()->is60()) {
                     self::dic()->ui()->mainTemplate()->printToStdout();
