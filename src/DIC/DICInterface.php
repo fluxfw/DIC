@@ -370,6 +370,12 @@ interface DICInterface
 
 
     /**
+     * @return ilTree
+     */
+    public function repositoryTree() : ilTree;
+
+
+    /**
      * @return Session
      */
     public function session() : Session;
@@ -411,6 +417,8 @@ interface DICInterface
 
     /**
      * @return ilTree
+     *
+     * @deprecated Please use `self::dic()->repositoryTree()`
      */
     public function tree() : ilTree;
 
@@ -427,8 +435,8 @@ interface DICInterface
      * @return ilUIService
      *
      * @throws DICException ilUIService not exists in ILIAS 5.4 or below!
-     * @since ILIAS 6.0
      *
+     * @since ILIAS 6.0
      */
     public function uiService() : ilUIService;
 
