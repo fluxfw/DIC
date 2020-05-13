@@ -68,7 +68,7 @@ final class DICStatic implements DICStaticInterface
                     throw new DICException("DIC not supports ILIAS " . self::version()->getILIASVersion() . " anymore!");
                     break;
 
-                case (self::version()->isLower(VersionInterface::ILIAS_VERSION_6_0)):
+                case (self::version()->isLower(VersionInterface::ILIAS_VERSION_6)):
                     global $DIC;
                     self::$dic = new ILIAS54DIC($DIC);
                     break;
