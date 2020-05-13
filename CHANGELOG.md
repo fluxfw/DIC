@@ -1,7 +1,8 @@
 # Changelog
 
-## [x]
+## [0.21.0]
 - Remove ILIAS 5.3 support
+- Deprecate `self::dic()->tree()` (> `self::dic()->repositoryTree()`)
 
 ## [0.20.5]
 - Fix ILIAS 6
