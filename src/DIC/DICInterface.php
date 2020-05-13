@@ -113,7 +113,7 @@ interface DICInterface
      *
      * @throws DICException ilBookingManagerService not exists in ILIAS 5.4 or below!
      *
-     * @since ILIAS 6.0
+     * @since ILIAS 6
      */
     public function bookingManager() : ilBookingManagerService;
 
@@ -179,7 +179,7 @@ interface DICInterface
      *
      * @throws DICException ilExerciseFactory not exists in ILIAS 5.4 or below!
      *
-     * @since ILIAS 6.0
+     * @since ILIAS 6
      */
     public function exercise() : ilExerciseFactory;
 
@@ -318,7 +318,7 @@ interface DICInterface
      *
      * @throws DICException ilAsqFactory not exists in ILIAS 5.4 or below!
      *
-     * @since ILIAS 6.0
+     * @since ILIAS 6
      */
     public function question() : ilAsqFactory;
 
@@ -364,7 +364,7 @@ interface DICInterface
      *
      * @throws DICException RefineryFactory not exists in ILIAS 5.4 or below!
      *
-     * @since ILIAS 6.0
+     * @since ILIAS 6
      */
     public function refinery() : RefineryFactory;
 
@@ -404,7 +404,7 @@ interface DICInterface
      *
      * @throws DICException ilTaskService not exists in ILIAS 5.4 or below!
      *
-     * @since ILIAS 6.0
+     * @since ILIAS 6
      */
     public function task() : ilTaskService;
 
@@ -436,7 +436,7 @@ interface DICInterface
      *
      * @throws DICException ilUIService not exists in ILIAS 5.4 or below!
      *
-     * @since ILIAS 6.0
+     * @since ILIAS 6
      */
     public function uiService() : ilUIService;
 

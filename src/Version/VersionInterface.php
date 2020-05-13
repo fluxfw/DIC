@@ -23,30 +23,40 @@ interface VersionInterface
 
 
     /**
+     * @param string $version
+     *
      * @return bool
      */
     public function isEqual(string $version) : bool;
 
 
     /**
+     * @param string $version
+     *
      * @return bool
      */
     public function isGreater(string $version) : bool;
 
 
     /**
+     * @param string $version
+     *
      * @return bool
      */
     public function isLower(string $version) : bool;
 
 
     /**
+     * @param string $version
+     *
      * @return bool
      */
     public function isMaxVersion(string $version) : bool;
 
 
     /**
+     * @param string $version
+     *
      * @return bool
      */
     public function isMinVersion(string $version) : bool;
