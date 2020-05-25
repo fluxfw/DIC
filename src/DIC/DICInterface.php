@@ -150,15 +150,15 @@ interface DICInterface
 
 
     /**
-     * @return ilIniFile
-     */
-    public function clientIni() : ilIniFile;
-
-
-    /**
      * @return ilCertificateActiveValidator
      */
     public function certificateActiveValidator() : ilCertificateActiveValidator;
+
+
+    /**
+     * @return ilIniFile
+     */
+    public function clientIni() : ilIniFile;
 
 
     /**
