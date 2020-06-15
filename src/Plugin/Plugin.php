@@ -43,11 +43,35 @@ final class Plugin implements PluginInterface
 
 
     /**
+     * @param string $lang
+     *
+     * @return ilLanguage
+     */
+    private static final function getLanguage(string $lang) : ilLanguage
+    {
+        if (!isset(self::$languages[$lang])) {
+            self::$languages[$lang] = new ilLanguage($lang);
+        }
+
+        return self::$languages[$lang];
+    }
+
+
+    /**
      * @inheritDoc
      */
     public function directory() : string
     {
         return $this->plugin_object->getDirectory();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getPluginObject() : ilPlugin
+    {
+        return $this->plugin_object;
     }
 
 
@@ -120,29 +144,5 @@ final class Plugin implements PluginInterface
         $txt = str_replace("\\n", "\n", $txt);
 
         return $txt;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getPluginObject() : ilPlugin
-    {
-        return $this->plugin_object;
-    }
-
-
-    /**
-     * @param string $lang
-     *
-     * @return ilLanguage
-     */
-    private static final function getLanguage(string $lang) : ilLanguage
-    {
-        if (!isset(self::$languages[$lang])) {
-            self::$languages[$lang] = new ilLanguage($lang);
-        }
-
-        return self::$languages[$lang];
     }
 }

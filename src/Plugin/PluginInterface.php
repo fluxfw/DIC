@@ -24,6 +24,14 @@ interface PluginInterface
      */
     public function directory() : string;
 
+    /**
+     * Get ILIAS plugin object instance
+     *
+     * Please avoid to use ILIAS plugin object instance and instead use methods in this class!
+     *
+     * @return ilPlugin ILIAS plugin object instance
+     */
+    public function getPluginObject() : ilPlugin;
 
     /**
      * Get a template
@@ -38,7 +46,6 @@ interface PluginInterface
      * @throws ilTemplateException
      */
     public function template(string $template, bool $remove_unknown_variables = true, bool $remove_empty_blocks = true, bool $plugin = true) : Template;
-
 
     /**
      * Translate text
@@ -56,14 +63,4 @@ interface PluginInterface
      * @throws DICException Please use only one placeholder in the default text for the key!
      */
     public function translate(string $key, string $module = "", array $placeholders = [], bool $plugin = true, string $lang = "", string $default = "MISSING %s") : string;
-
-
-    /**
-     * Get ILIAS plugin object instance
-     *
-     * Please avoid to use ILIAS plugin object instance and instead use methods in this class!
-     *
-     * @return ilPlugin ILIAS plugin object instance
-     */
-    public function getPluginObject() : ilPlugin;
 }
