@@ -202,15 +202,18 @@ interface DICInterface
      */
     public function databaseCore() : ilDBInterface;
 
+
     /**
      * @return Container
      */
     public function &dic() : Container;
 
+
     /**
      * @return ilErrorHandling
      */
     public function error() : ilErrorHandling;
+
 
     /**
      * @return ilExerciseFactory
@@ -221,6 +224,7 @@ interface DICInterface
      */
     public function exercise() : ilExerciseFactory;
 
+
     /**
      * @return ilFavouritesDBRepository
      *
@@ -230,65 +234,78 @@ interface DICInterface
      */
     public function favourites() : ilFavouritesDBRepository;
 
+
     /**
      * @return Filesystems
      */
     public function filesystem() : Filesystems;
+
 
     /**
      * @return GlobalScreenService
      */
     public function globalScreen() : GlobalScreenService;
 
+
     /**
      * @return ilHelpGUI
      */
     public function help() : ilHelpGUI;
+
 
     /**
      * @return ilNavigationHistory
      */
     public function history() : ilNavigationHistory;
 
+
     /**
      * @return HTTPServices
      */
     public function http() : HTTPServices;
+
 
     /**
      * @return ILIAS
      */
     public function ilias() : ILIAS;
 
+
     /**
      * @return ilIniFile
      */
     public function iliasIni() : ilIniFile;
+
 
     /**
      * @return JavaScriptBinding
      */
     public function javaScriptBinding() : JavaScriptBinding;
 
+
     /**
      * @return ilLanguage
      */
     public function language() : ilLanguage;
+
 
     /**
      * @return ilLearningHistoryService
      */
     public function learningHistory() : ilLearningHistoryService;
 
+
     /**
      * @return ilLocatorGUI
      */
     public function locator() : ilLocatorGUI;
 
+
     /**
      * @return ilComponentLogger
      */
     public function log() : ilComponentLogger;
+
 
     /**
      * @return LoggingServices
@@ -297,62 +314,73 @@ interface DICInterface
      */
     public function logger() : LoggingServices;
 
+
     /**
      * @return ilLoggerFactory
      */
     public function loggerFactory() : ilLoggerFactory;
+
 
     /**
      * @return ilMailMimeSenderFactory
      */
     public function mailMimeSenderFactory() : ilMailMimeSenderFactory;
 
+
     /**
      * @return ilMailMimeTransportFactory
      */
     public function mailMimeTransportFactory() : ilMailMimeTransportFactory;
+
 
     /**
      * @return ilMainMenuGUI
      */
     public function mainMenu() : ilMainMenuGUI;
 
+
     /**
      * @return ilMMItemRepository
      */
     public function mainMenuItem() : ilMMItemRepository;/*: ilGlobalTemplateInterface*/
 
-/**
+    /**
      * @return ilTemplate|ilGlobalTemplateInterface
      *
      * @deprecated Please use `self::dic()->ui()->mainTemplate()`
      */
     public function mainTemplate();
 
+
     /**
      * @return ilNewsService
      */
     public function news() : ilNewsService;
+
 
     /**
      * @return ilObjectDataCache
      */
     public function objDataCache() : ilObjectDataCache;
 
+
     /**
      * @return ilObjectDefinition
      */
     public function objDefinition() : ilObjectDefinition;
+
 
     /**
      * @return ilObjectService
      */
     public function object() : ilObjectService;
 
+
     /**
      * @return ilPluginAdmin
      */
     public function pluginAdmin() : ilPluginAdmin;
+
 
     /**
      * @return ilAsqFactory
@@ -363,10 +391,12 @@ interface DICInterface
      */
     public function question() : ilAsqFactory;
 
+
     /**
      * @return RBACServices
      */
     public function rbac() : RBACServices;
+
 
     /**
      * @return ilRbacAdmin
@@ -375,6 +405,7 @@ interface DICInterface
      */
     public function rbacadmin() : ilRbacAdmin;
 
+
     /**
      * @return ilRbacReview
      *
@@ -382,12 +413,14 @@ interface DICInterface
      */
     public function rbacreview() : ilRbacReview;
 
+
     /**
      * @return ilRbacSystem
      *
      * @deprecated Please use `self::dic()->rba()->system()`
      */
     public function rbacsystem() : ilRbacSystem;
+
 
     /**
      * @return RefineryFactory
@@ -398,40 +431,48 @@ interface DICInterface
      */
     public function refinery() : RefineryFactory;
 
+
     /**
      * @return Loader
      */
     public function rendererLoader() : Loader;
+
 
     /**
      * @return ilTree
      */
     public function repositoryTree() : ilTree;
 
+
     /**
      * @return ResourceRegistry
      */
     public function resourceRegistry() : ResourceRegistry;
+
 
     /**
      * @return Session
      */
     public function session() : Session;
 
+
     /**
      * @return ilSetting
      */
     public function settings() : ilSetting;
+
 
     /**
      * @return ilStyleDefinition
      */
     public function systemStyle() : ilStyleDefinition;
 
+
     /**
      * @return ilTabsGUI
      */
     public function tabs() : ilTabsGUI;
+
 
     /**
      * @return ilTaskService
@@ -442,15 +483,18 @@ interface DICInterface
      */
     public function task() : ilTaskService;
 
+
     /**
      * @return TemplateFactory
      */
     public function templateFactory() : TemplateFactory;
 
+
     /**
      * @return ilToolbarGUI
      */
     public function toolbar() : ilToolbarGUI;
+
 
     /**
      * @return ilTree
@@ -459,12 +503,14 @@ interface DICInterface
      */
     public function tree() : ilTree;
 
+
     /**
      * @return UIServices
      *
      * @since ILIAS 5.2
      */
     public function ui() : UIServices;
+
 
     /**
      * @return ilUIService
@@ -475,10 +521,12 @@ interface DICInterface
      */
     public function uiService() : ilUIService;
 
+
     /**
      * @return FileUpload
      */
     public function upload() : FileUpload;
+
 
     /**
      * @return ilObjUser

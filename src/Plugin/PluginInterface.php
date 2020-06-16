@@ -24,6 +24,7 @@ interface PluginInterface
      */
     public function directory() : string;
 
+
     /**
      * Get ILIAS plugin object instance
      *
@@ -32,6 +33,7 @@ interface PluginInterface
      * @return ilPlugin ILIAS plugin object instance
      */
     public function getPluginObject() : ilPlugin;
+
 
     /**
      * Get a template
@@ -46,6 +48,7 @@ interface PluginInterface
      * @throws ilTemplateException
      */
     public function template(string $template, bool $remove_unknown_variables = true, bool $remove_empty_blocks = true, bool $plugin = true) : Template;
+
 
     /**
      * Translate text
