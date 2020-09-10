@@ -59,7 +59,7 @@ class DevToolsCtrl
     public static function addTabs(PluginInterface $plugin)/*: void*/
     {
         if (self::isDevMode()) {
-            self::dic()->tabs()->addTab(self::TAB_DEV_TOOLS, $plugin->translate("dev_tools", self::LANG_MODULE), self::dic()->ctrl()->getLinkTargetByClass(static::class, self::CMD_LIST_DEV_TOOLS));
+            self::dic()->tabs()->addTab(self::TAB_DEV_TOOLS, $plugin->translate("dev_tools", self::LANG_MODULE), self::dic()->ctrl()->getLinkTargetByClass(static::class));
         }
     }
 
@@ -153,10 +153,10 @@ class DevToolsCtrl
 
         ilUtil::sendSuccess($this->plugin->translate("reloaded_ctrl_structure", self::LANG_MODULE), true);
 
-        //self::dic()->ctrl()->redirect($this, self::CMD_LIST_DEV_TOOLS);
+        //self::dic()->ctrl()->redirect($this);
         self::dic()->ctrl()->redirectToURL(self::dic()->ctrl()->getTargetScript() . "?ref_id=" . (31) . "&admin_mode=settings&ctype=" . $this->plugin->getPluginObject()->getComponentType()
             . "&cname=" . $this->plugin->getPluginObject()->getComponentName()
-            . "&slot_id=" . $this->plugin->getPluginObject()->getSlotId() . "&pname=" . $this->plugin->getPluginObject()->getPluginName() . "&cmd=" . self::CMD_LIST_DEV_TOOLS . "&cmdClass="
+            . "&slot_id=" . $this->plugin->getPluginObject()->getSlotId() . "&pname=" . $this->plugin->getPluginObject()->getPluginName() . "&cmdClass="
             . static::class . "&cmdNode=" . implode(":", array_map([$this, "reloadCtrlStructureGetNewNodeId"], [
                 ilAdministrationGUI::class,
                 ilObjComponentSettingsGUI::class,
@@ -175,7 +175,7 @@ class DevToolsCtrl
 
         ilUtil::sendSuccess($this->plugin->translate("reloaded_database", self::LANG_MODULE) . "<br><br>" . $this->plugin->getPluginObject()->message, true);
 
-        self::dic()->ctrl()->redirect($this, self::CMD_LIST_DEV_TOOLS);
+        self::dic()->ctrl()->redirect($this);
     }
 
 
@@ -188,7 +188,7 @@ class DevToolsCtrl
 
         ilUtil::sendSuccess($this->plugin->translate("reloaded_languages", self::LANG_MODULE), true);
 
-        self::dic()->ctrl()->redirect($this, self::CMD_LIST_DEV_TOOLS);
+        self::dic()->ctrl()->redirect($this);
     }
 
 
@@ -201,7 +201,7 @@ class DevToolsCtrl
 
         ilUtil::sendSuccess($this->plugin->translate("reloaded_plugin_xml", self::LANG_MODULE), true);
 
-        self::dic()->ctrl()->redirect($this, self::CMD_LIST_DEV_TOOLS);
+        self::dic()->ctrl()->redirect($this);
     }
 
 
