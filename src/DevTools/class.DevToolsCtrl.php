@@ -59,7 +59,7 @@ class DevToolsCtrl
     public static function addTabs(PluginInterface $plugin)/*: void*/
     {
         if (self::isDevMode()) {
-            self::dic()->tabs()->addTab(self::TAB_DEV_TOOLS, $plugin->translate("dev_tools", self::LANG_MODULE), self::dic()->ctrl()->getLinkTargetByClass(self::class, self::CMD_LIST_DEV_TOOLS));
+            self::dic()->tabs()->addTab(self::TAB_DEV_TOOLS, $plugin->translate("dev_tools", self::LANG_MODULE), self::dic()->ctrl()->getLinkTargetByClass(static::class, self::CMD_LIST_DEV_TOOLS));
         }
     }
 
