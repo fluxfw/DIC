@@ -2,8 +2,6 @@
 
 namespace srag\DIC;
 
-use Throwable;
-
 /**
  * Class Ilias7PreWarn
  *
@@ -56,11 +54,7 @@ final class Ilias7PreWarn
     private static function checkIlias7PreWarn()/*: bool*/
     {
         if (self::$cache === null) {
-            try {
-                self::$cache = (!self::version()->is7());
-            } catch (Throwable $ex) {
-                self::$cache = true;
-            }
+            self::$cache = (!self::version()->is7());
         }
 
         return self::$cache;
