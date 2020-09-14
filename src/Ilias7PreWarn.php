@@ -57,7 +57,7 @@ final class Ilias7PreWarn
     {
         if (self::$cache === null) {
             try {
-                self::$cache = self::version()->is7();
+                self::$cache = (!self::version()->is7());
             } catch (Throwable $ex) {
                 self::$cache = true;
             }
