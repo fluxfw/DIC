@@ -1,5 +1,8 @@
 # Changelog
 
+## [x]
+- Move DevTools to separate package
+
 ## [0.28.0]
 - `DataFactory`
 
