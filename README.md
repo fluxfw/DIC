@@ -185,22 +185,6 @@ If you really need DICTrait outside a class (For instance in `dbupdate.php`), us
 You can now remove all usages of ILIAS globals in your class and replace it with this library.
 Please avoid to store in variables or class variables.
 
-## LibraryLanguageInstaller
-Expand you plugin class for installing languages of a library to your plugin
-```php
-...
-	/**
-     * @inheritDoc
-     */
-    public function updateLanguages(/*?array*/ $a_lang_keys = null)/*:void*/ {
-		parent::updateLanguages($a_lang_keys);
-
-		LibraryLanguageInstaller::getInstance()->withPlugin(self::plugin())->withLibraryLanguageDirectory(__DIR__ . "/../vendor/srag/x/lang")
-			->updateLanguages($a_lang_keys);
-	}
-...
-```
-
 ## Database
 This library delivers also a custom `ilDB` decorator class with spec. functions, restricted to `PDO` (Because to make access more core functions), access via `self:.dic()->database()`
 
