@@ -1,6 +1,6 @@
 # Changelog
 
-## [x]
+## [0.29.0]
 - Move DevTools to separate package
 - Move LibraryLanguageInstaller to separate package
 
