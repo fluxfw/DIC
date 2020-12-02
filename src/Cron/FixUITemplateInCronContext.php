@@ -26,7 +26,16 @@ trait FixUITemplateInCronContext
             }
         } else {
             if (!isset($GLOBALS["tpl"])) {
-                $GLOBALS["tpl"] = new ilTemplate("tpl.main_menu.html", true, true, "Services/MainMenu");
+                $GLOBALS["tpl"] = new class() extends ilTemplate {
+
+                    /**
+                     * @inheritDoc
+                     */
+                    public function __construct()
+                    {
+                        //parent::__construct();
+                    }
+                };
             }
 
             self::dic()->dic()->offsetSet($GLOBALS["tpl"]);
