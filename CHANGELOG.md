@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.31.1]
+- Not call `ilTemplate` constructor in `FixUITemplateInCronContext`
+
 ## [0.31.0]
 - `FixUITemplateInCronContext`
 
