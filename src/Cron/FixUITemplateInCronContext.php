@@ -38,7 +38,7 @@ trait FixUITemplateInCronContext
                 };
             }
 
-            self::dic()->dic()->offsetSet($GLOBALS["tpl"]);
+            self::dic()->dic()->offsetSet("tpl", $GLOBALS["tpl"]);
         }
     }
 }
