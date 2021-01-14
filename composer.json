@@ -11,10 +11,10 @@
   },
   "type": "library",
   "keywords": [
-    "ILIAS",
-    "DIC",
-    "Trait",
-    "globals"
+    "dic",
+    "globals",
+    "ilias",
+    "trait",
   ],
   "homepage": "https://github.com/studer-raimann/DIC",
   "license": "GPL-3.0-only",
