@@ -44,12 +44,19 @@ final class PluginVersionParameter implements Pluginable
 
 
     /**
-     * @param string $url
+     * @param string      $prod_url
+     * @param string|null $dev_url
      *
      * @return string
      */
-    public function appendToUrl(string $url) : string
+    public function appendToUrl(string $prod_url, /*?*/ string $dev_url = null) : string
     {
+        if (!empty($dev_url) && $this->isDevMode()) {
+            $url = $dev_url;
+        } else {
+            $url = $prod_url;
+        }
+
         if ($this->plugin === null) {
             return $url;
         }
@@ -81,5 +88,14 @@ final class PluginVersionParameter implements Pluginable
         $this->plugin = $plugin;
 
         return $this;
+    }
+
+
+    /**
+     * @return bool
+     */
+    protected function isDevMode() : bool
+    {
+        return (defined("DEVMODE") && intval(DEVMODE) === 1);
     }
 }

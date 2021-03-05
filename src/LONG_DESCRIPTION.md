@@ -293,12 +293,13 @@ self::dic()->database()->createOrUpdateTable($table_name, $columns, $primary_col
 
 Force reload css or js files on a plugin update (Browser Cache)
 
+Optimal, it's also possible to pass a second URL which used if ILIAS Dev-Mode is enabled (For instance non-min version)
+
 ```php
 ...
 use srag\DIC\x\Version\PluginVersionParameter;
 ...
 $version_parameter = PluginVersionParameter::getInstance()->withPlugin(self::plugin());
-...
 self::dic()->ui()->mainTemplate()->addCss($version_parameter->appendToUrl("..."));
 self::dic()->ui()->mainTemplate()->addJavaScript($version_parameter->appendToUrl("..."));
 ...
