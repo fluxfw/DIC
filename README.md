@@ -299,6 +299,21 @@ self::dic()->database()->createOrUpdateTable($table_name, $columns, $primary_col
         ])
 ```
 
+## PluginVersionParameter
+
+Force reload css or js files on a plugin update (Browser Cache)
+
+```php
+...
+use srag\DIC\x\Version\PluginVersionParameter;
+...
+$version_parameter = PluginVersionParameter::getInstance()->withPlugin(self::plugin());
+...
+self::dic()->ui()->mainTemplate()->addCss($version_parameter->appendToUrl("..."));
+self::dic()->ui()->mainTemplate()->addJavaScript($version_parameter->appendToUrl("..."));
+...
+```
+
 ## Requirements
 
 * ILIAS 5.4.0 - 6.999
