@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.32.1]
+- `PluginVersionParameter`
+
 ## [0.32.0]
 - `PluginVersionParameter`
 
