@@ -5,7 +5,6 @@ namespace srag\DIC;
 use ilLogLevel;
 use ilPlugin;
 use srag\DIC\DIC\DICInterface;
-use srag\DIC\DIC\Implementation\ILIAS54DIC;
 use srag\DIC\DIC\Implementation\ILIAS60DIC;
 use srag\DIC\Exception\DICException;
 use srag\DIC\Output\Output;
@@ -71,13 +70,8 @@ final class DICStatic implements DICStaticInterface
     {
         if (self::$dic === null) {
             switch (true) {
-                case (self::version()->isLower(VersionInterface::ILIAS_VERSION_5_4)):
-                    throw new DICException("DIC not supports ILIAS " . self::version()->getILIASVersion() . " anymore!");
-                    break;
-
                 case (self::version()->isLower(VersionInterface::ILIAS_VERSION_6)):
-                    global $DIC;
-                    self::$dic = new ILIAS54DIC($DIC);
+                    throw new DICException("DIC not supports ILIAS " . self::version()->getILIASVersion() . " anymore!");
                     break;
 
                 default:
