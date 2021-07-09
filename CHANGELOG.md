@@ -3,6 +3,7 @@
 ## [0.33.0]
 - Remove ILIAS 5.4 support
 - Remove deprecated legacy fallback dic methods (mainTemplate, rbacadmin, rbacreview, rbacsystem, tree)
+- Remove deprecated clearCache
 
 ## [0.32.4]
 - Change utils url
