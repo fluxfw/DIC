@@ -2,6 +2,7 @@
 
 ## [0.33.0]
 - Remove ILIAS 5.4 support
+- Min PHP 7.2
 - Remove deprecated legacy fallback dic methods (mainTemplate, rbacadmin, rbacreview, rbacsystem, tree)
 - Remove deprecated clearCache
 
