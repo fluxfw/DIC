@@ -105,7 +105,7 @@ For output HTML or GUI use:
  *
  * @throws DICException
  */
-self::output()->output($value, bool $show = false, bool $main_template = true)/*: void*/
+self::output()->output($value, bool $show = false, bool $main_template = true) : void
 ```
 
 For output JSON:
@@ -118,7 +118,7 @@ For output JSON:
  *
  * @throws DICException
  */
-self::output()->outputJSON($value)/*: void*/;
+self::output()->outputJSON($value) : void;
 ```
 
 For get HTML of GUI:
@@ -315,5 +315,5 @@ self::dic()->ui()->mainTemplate()->addJavaScript($version_parameter->appendToUrl
 
 ## Requirements
 
-* ILIAS 5.4.0 - 6.999
-* PHP >=7.0
+* ILIAS 6.0 - 7.999
+* PHP >=7.2
