@@ -1,21 +1,11 @@
 #!/usr/bin/env sh
 
-patch_url="https://github.com/ILIAS-eLearning/ILIAS/pull/3512.diff"
-echo "Patch url: $patch_url"
+# https://github.com/ILIAS-eLearning/ILIAS/pull/3512.diff
+patch_file="`dirname $0`/ilias7_core_apply_ilctrl_patch_3512.diff"
+echo "Patch file: $patch_file"
 
 ilias_root_dir="$(realpath -s "$(dirname $0)/../../../../../../../../../../..")"
 echo "ILIAS root directory: $ilias_root_dir"
-
-if which curl > /dev/null; then
-    echo "Uses curl"
-    download_patch="curl -L $patch_url"
-elif which wget > /dev/null; then
-    echo "Uses wget"
-    download_patch="wget -O - $patch_url"
-else
-    echo "Neither curl or wget found"
-    exit 1
-fi
 
 if which git > /dev/null; then
     echo "Uses git"
@@ -30,6 +20,6 @@ fi
 
 echo "Download and apply"
 set -e
-$download_patch | $apply_patch
+cat $patch_file | $apply_patch
 
 echo "Done"
