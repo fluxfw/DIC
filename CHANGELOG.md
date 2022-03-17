@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.34.1]
+- Use local patch
+
 ## [0.34.0]
 - Move `ilias7_core_apply_ilctrl_patch.sh`
 
