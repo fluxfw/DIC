@@ -6,6 +6,16 @@ This project is licensed under the GPL-3.0-only license
 
 ## Usage
 
+## ILIAS 7 core ilCtrl patch
+
+For make some plugins work with ilCtrl in ILIAS 7, you may need to patch the core, before you update the plugin (At your own risk)
+
+Start at the plugin directory
+
+```shell
+./vendor/srag/dic/bin/ilias7_core_apply_ilctrl_patch.sh
+```
+
 ### Composer
 
 First add the following to your `composer.json` file:
