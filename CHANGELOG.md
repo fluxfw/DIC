@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.35.0]
+- Clean up
+
 ## [0.34.1]
 - Use local patch
 
